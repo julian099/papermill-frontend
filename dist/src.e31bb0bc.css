@@ -69,6 +69,11 @@ a {
   text-align: center;
 }
 
+.profile-centre {
+  text-align: center;
+  padding-top: 30px;
+}
+
 .large-text {
   font-size: 1.6em;
 }

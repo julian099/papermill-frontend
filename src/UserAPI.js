@@ -66,6 +66,26 @@ class UserAPI {
   }
 
 
+  async getPublicUser(userId){
+    if(!userId) return
+    
+    const response = await fetch(`${App.apiBase}/user/public/${userId}`, {
+      headers: {"Authorization": `Bearer ${localStorage.accessToken}`}
+    })
+
+    if(!response.ok){
+      const err = await response.json()
+      if(err) console.log(err)
+      throw new Error('Problem getting user')
+    }
+
+    const data = await response.json()
+
+    return data
+  }
+
+
+
   async addFavDesign(designId){
     // validate
     if(!designId) return

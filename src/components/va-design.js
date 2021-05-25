@@ -137,6 +137,7 @@ customElements.define('va-design', class Design extends LitElement {
         font-size: 0.9em;
         font-style: italic;
         opacity: 0.8;
+        cursor: pointer;
       }
       .moreInfoText{
         position: absolute;
@@ -202,7 +203,6 @@ customElements.define('va-design', class Design extends LitElement {
 
 
 
-
     
   }
 
@@ -216,7 +216,7 @@ customElements.define('va-design', class Design extends LitElement {
       <div class="moreInfoText"><h3>More Info</h3></div>
       <h2>${this.name}</h2>
       <h3>$${this.price}</h3>
-      <a @click=${() => gotoRoute(`/profile/${this.user._id}`)}><p class="author">By ${this.user.firstName} ${this.user.lastName}</p></a>
+      <a @click=${() => gotoRoute(`/public?id=${this.user._id}`)}><p class="author">By ${this.user.firstName} ${this.user.lastName}</p></a>
       <sl-button @click=${this.moreInfoHandler.bind(this)}>More info</sl-button>
       <sl-icon-button name="heart-fill" label="Add to favourites" @click=${this.addFavHandler.bind(this)}></sl-icon-button>
     </sl-card>

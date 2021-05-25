@@ -39,6 +39,12 @@ class Utils {
     if(!pageContent) return
     gsap.fromTo("#design_artwork", {opacity: 0, y: 600}, {opacity: 1, y: 0, ease: 'power4', duration: 2, delay: 0.5})
   }
+  newDesignArtworkAnim(){
+    const pageContent = document.querySelector('.page-content')
+  if(!pageContent) return
+  gsap.fromTo(".newdesign-artwork", {opacity: 0, x: 600}, {opacity: 1, x: 0, ease: 'power4', duration: 1, delay: 1})  
+  gsap.fromTo("article", {y: 600}, {y: 0, ease: 'power4', duration: 1, delay: 0.5})  
+  }
   
 
 }

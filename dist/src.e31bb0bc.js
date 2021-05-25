@@ -7716,6 +7716,31 @@ class Utils {
     });
   }
 
+  newDesignArtworkAnim() {
+    const pageContent = document.querySelector('.page-content');
+    if (!pageContent) return;
+
+    _gsap.default.fromTo(".newdesign-artwork", {
+      opacity: 0,
+      x: 600
+    }, {
+      opacity: 1,
+      x: 0,
+      ease: 'power4',
+      duration: 1,
+      delay: 1
+    });
+
+    _gsap.default.fromTo("article", {
+      y: 600
+    }, {
+      y: 0,
+      ease: 'power4',
+      duration: 1,
+      delay: 0.5
+    });
+  }
+
 }
 
 var _default = new Utils();
@@ -7939,7 +7964,231 @@ class SignUpView {
 var _default = new SignUpView();
 
 exports.default = _default;
-},{"./../../App":"App.js","./../../Auth":"Auth.js","lit-html":"../node_modules/lit-html/lit-html.js","./../../Router":"Router.js","./../../Utils":"Utils.js"}],"../node_modules/moment/moment.js":[function(require,module,exports) {
+},{"./../../App":"App.js","./../../Auth":"Auth.js","lit-html":"../node_modules/lit-html/lit-html.js","./../../Router":"Router.js","./../../Utils":"Utils.js"}],"UserAPI.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _App = _interopRequireDefault(require("./App"));
+
+var _Auth = _interopRequireDefault(require("./Auth"));
+
+var _Toast = _interopRequireDefault(require("./Toast"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+class UserAPI {
+  async updateUser(userId, userData) {
+    let dataType = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'form';
+    // validate
+    if (!userId || !userData) return;
+    let responseHeader; // form data
+
+    if (dataType == 'form') {
+      // fetch response header normal (form data)
+      responseHeader = {
+        method: "PUT",
+        headers: {
+          "Authorization": "Bearer ".concat(localStorage.accessToken)
+        },
+        body: userData
+      }; // json data
+    } else if (dataType == 'json') {
+      responseHeader = {
+        method: "PUT",
+        headers: {
+          "Authorization": "Bearer ".concat(localStorage.accessToken),
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userData)
+      };
+    } // make fetch request to backend
+
+
+    const response = await fetch("".concat(_App.default.apiBase, "/user/").concat(userId), responseHeader); // if response not ok
+
+    if (!response.ok) {
+      // console log error
+      const err = await response.json();
+      if (err) console.log(err); // throw error (exit this function)      
+
+      throw new Error('Problem updating user');
+    } // convert response payload into json - store as data
+
+
+    const data = await response.json(); // return data
+
+    return data;
+  }
+
+  async getUser(userId) {
+    if (!userId) return;
+    const response = await fetch("".concat(_App.default.apiBase, "/user/").concat(userId), {
+      headers: {
+        "Authorization": "Bearer ".concat(localStorage.accessToken)
+      }
+    });
+
+    if (!response.ok) {
+      const err = await response.json();
+      if (err) console.log(err);
+      throw new Error('Problem getting user');
+    }
+
+    const data = await response.json();
+    return data;
+  }
+
+  async getPublicUser(userId) {
+    if (!userId) return;
+    const response = await fetch("".concat(_App.default.apiBase, "/user/public/").concat(userId), {
+      headers: {
+        "Authorization": "Bearer ".concat(localStorage.accessToken)
+      }
+    });
+
+    if (!response.ok) {
+      const err = await response.json();
+      if (err) console.log(err);
+      throw new Error('Problem getting user');
+    }
+
+    const data = await response.json();
+    return data;
+  }
+
+  async addFavDesign(designId) {
+    // validate
+    if (!designId) return; // fetch the json data
+
+    const response = await fetch("".concat(_App.default.apiBase, "/user/addFavDesign"), {
+      method: "PUT",
+      headers: {
+        "Authorization": "Bearer ".concat(localStorage.accessToken),
+        "Content-Type": 'application/json'
+      },
+      body: JSON.stringify({
+        designId: designId
+      })
+    }); // if response not ok
+
+    if (!response.ok) {
+      // console log error
+      const err = await response.json();
+      if (err) console.log(err); // throw error (exit this function)      
+
+      throw new Error('Problem adding design to favourites');
+    } // convert response payload into json - store as data
+
+
+    const data = await response.json(); // return data
+
+    return data;
+  }
+
+  async getAllUsers() {
+    // fetch the json data
+    const response = await fetch("".concat(_App.default.apiBase, "/allusers"), {
+      headers: {
+        "Authorization": "Bearer ".concat(localStorage.accessToken)
+      }
+    }); // if response not ok
+
+    if (!response.ok) {
+      // console log error
+      const err = await response.json();
+      if (err) console.log(err); // throw error (exit this function)      
+
+      throw new Error('Problem getting all users');
+    } // convert response payload into json - store as data
+
+
+    const data = await response.json(); // return data
+
+    return data;
+  }
+
+}
+
+var _default = new UserAPI();
+
+exports.default = _default;
+},{"./App":"App.js","./Auth":"Auth.js","./Toast":"Toast.js"}],"DesignAPI.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _App = _interopRequireDefault(require("./App"));
+
+var _Auth = _interopRequireDefault(require("./Auth"));
+
+var _Toast = _interopRequireDefault(require("./Toast"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+class DesignAPI {
+  async newDesign(formData) {
+    // send fetch request
+    const response = await fetch("".concat(_App.default.apiBase, "/design"), {
+      method: 'POST',
+      headers: {
+        "Authorization": "Bearer ".concat(localStorage.accessToken)
+      },
+      body: formData
+    }); // if response not ok
+
+    if (!response.ok) {
+      let message = 'Problem adding design';
+
+      if (response.status == 400) {
+        const err = await response.json();
+        message = err.message;
+      } // throw error (exit this function)      
+
+
+      throw new Error(message);
+    } // convert response payload into json - store as data
+
+
+    const data = await response.json(); // return data
+
+    return data;
+  }
+
+  async getDesigns() {
+    // fetch the json data
+    const response = await fetch("".concat(_App.default.apiBase, "/design"), {
+      headers: {
+        "Authorization": "Bearer ".concat(localStorage.accessToken)
+      }
+    }); // if response not ok
+
+    if (!response.ok) {
+      // console log error
+      const err = await response.json();
+      if (err) console.log(err); // throw error (exit this function)      
+
+      throw new Error('Problem getting designs');
+    } // convert response payload into json - store as data
+
+
+    const data = await response.json(); // return data
+
+    return data;
+  }
+
+}
+
+var _default = new DesignAPI();
+
+exports.default = _default;
+},{"./App":"App.js","./Auth":"Auth.js","./Toast":"Toast.js"}],"../node_modules/moment/moment.js":[function(require,module,exports) {
 var define;
 var global = arguments[3];
 //! moment.js
@@ -13631,9 +13880,45 @@ var _Auth = _interopRequireDefault(require("./../../Auth"));
 
 var _Utils = _interopRequireDefault(require("./../../Utils"));
 
+var _Toast = _interopRequireDefault(require("../../Toast"));
+
+var _UserAPI = _interopRequireDefault(require("../../UserAPI"));
+
+var _DesignAPI = _interopRequireDefault(require("../../DesignAPI"));
+
 var _moment = _interopRequireDefault(require("moment"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _templateObject8() {
+  const data = _taggedTemplateLiteral(["\n            <va-design class=\"design-card\"\n            id=\"", "\"\n            name=\"", "\" \n            description=\"", "\"\n            price=\"", "\"\n            user=\"", "\"\n            image=\"", "\"\n            gender=\"", "\"\n            length=\"", "\"\n            >\n            </va-design>\n\n              \n              "]);
+
+  _templateObject8 = function _templateObject8() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject7() {
+  const data = _taggedTemplateLiteral(["\n          ", "\n          "]);
+
+  _templateObject7 = function _templateObject7() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject6() {
+  const data = _taggedTemplateLiteral(["\n            <sl-spinner></sl-spinner>\n          "]);
+
+  _templateObject6 = function _templateObject6() {
+    return data;
+  };
+
+  return data;
+}
 
 function _templateObject5() {
   const data = _taggedTemplateLiteral(["\n        <p>No bio found.</p>\n        "]);
@@ -13676,7 +13961,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  const data = _taggedTemplateLiteral(["\n      <va-app-header title=\"Profile\" user=\"", "\"></va-app-header>\n      <div class=\"page-content calign\">        \n        ", "\n        <h2>", " ", "</h2>\n        <p>Contact me at ", "</p>\n        \n        <p>Last update was ", "</p>\n\n\n\n        ", "\n  \n\n        <sl-button @click=", ">Edit Profile</sl-button>\n      </div>      \n    "]);
+  const data = _taggedTemplateLiteral(["\n      <va-app-header title=\"Profile\" user=\"", "\"></va-app-header>\n      <div class=\"page-content calign\">        \n        ", "\n        <h2>", " ", "</h2>\n        <p>Contact me at ", "</p>\n        \n        <p>Last update was ", "</p>\n\n\n\n        ", "\n  \n\n        <sl-button @click=", ">Edit Profile</sl-button>\n        <div class=\"designs-container\">\n          ", "\n        </div>\n      </div>      \n      </div>  \n      \n        \n    "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -13688,16 +13973,50 @@ function _templateObject() {
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 class ProfileView {
-  init() {
+  async init() {
     console.log('ProfileView.init');
     document.title = 'Profile';
+    this.designs = null;
     this.render();
 
     _Utils.default.pageIntroAnim();
+
+    await this.getDesigns();
+
+    _Utils.default.designContainerAnim();
+
+    await this.filterDesigns('published', '60a665e8f45c409a83f78d83');
+  }
+
+  async filterDesigns(field, match) {
+    // validate
+    if (!field || !match) return; // get fresh copy of designs
+
+    this.designs = await _DesignAPI.default.getDesigns();
+    let filteredDesigns; // filter designs published by user based on their ID
+
+    if (field == 'published') {
+      const currentUser = await _UserAPI.default.getUser(_Auth.default.currentUser._id);
+      filteredDesigns = this.designs.filter(design => design.user._id == match);
+    } //render
+
+
+    this.designs = filteredDesigns;
+    this.render();
+  }
+
+  async getDesigns() {
+    try {
+      this.designs = await _DesignAPI.default.getDesigns();
+      console.log(this.designs);
+      this.render();
+    } catch (err) {
+      _Toast.default.show(err, 'error');
+    }
   }
 
   render() {
-    const template = (0, _litHtml.html)(_templateObject(), JSON.stringify(_Auth.default.currentUser), _Auth.default.currentUser && _Auth.default.currentUser.avatar ? (0, _litHtml.html)(_templateObject2(), _Auth.default.currentUser && _Auth.default.currentUser.avatar ? "".concat(_App.default.apiBase, "/images/").concat(_Auth.default.currentUser.avatar) : '') : (0, _litHtml.html)(_templateObject3()), _Auth.default.currentUser.firstName, _Auth.default.currentUser.lastName, _Auth.default.currentUser.email, (0, _moment.default)(_Auth.default.currentUser.updatedAt).format('MMMM Do YYYY, @ h:mm a'), _Auth.default.currentUser.bio ? (0, _litHtml.html)(_templateObject4(), _Auth.default.currentUser.bio) : (0, _litHtml.html)(_templateObject5()), () => (0, _Router.gotoRoute)('/editProfile'));
+    const template = (0, _litHtml.html)(_templateObject(), JSON.stringify(_Auth.default.currentUser), _Auth.default.currentUser && _Auth.default.currentUser.avatar ? (0, _litHtml.html)(_templateObject2(), _Auth.default.currentUser && _Auth.default.currentUser.avatar ? "".concat(_App.default.apiBase, "/images/").concat(_Auth.default.currentUser.avatar) : '') : (0, _litHtml.html)(_templateObject3()), _Auth.default.currentUser.firstName, _Auth.default.currentUser.lastName, _Auth.default.currentUser.email, (0, _moment.default)(_Auth.default.currentUser.updatedAt).format('MMMM Do YYYY, @ h:mm a'), _Auth.default.currentUser.bio ? (0, _litHtml.html)(_templateObject4(), _Auth.default.currentUser.bio) : (0, _litHtml.html)(_templateObject5()), () => (0, _Router.gotoRoute)('/editProfile'), this.designs == null ? (0, _litHtml.html)(_templateObject6()) : (0, _litHtml.html)(_templateObject7(), this.designs.map(design => (0, _litHtml.html)(_templateObject8(), design._id, design.name, design.description, design.price, JSON.stringify(design.user), design.image, design.gender, design.length))));
     (0, _litHtml.render)(template, _App.default.rootEl);
   }
 
@@ -13706,141 +14025,7 @@ class ProfileView {
 var _default = new ProfileView();
 
 exports.default = _default;
-},{"./../../App":"App.js","lit-html":"../node_modules/lit-html/lit-html.js","./../../Router":"Router.js","./../../Auth":"Auth.js","./../../Utils":"Utils.js","moment":"../node_modules/moment/moment.js"}],"UserAPI.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _App = _interopRequireDefault(require("./App"));
-
-var _Auth = _interopRequireDefault(require("./Auth"));
-
-var _Toast = _interopRequireDefault(require("./Toast"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-class UserAPI {
-  async updateUser(userId, userData) {
-    let dataType = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'form';
-    // validate
-    if (!userId || !userData) return;
-    let responseHeader; // form data
-
-    if (dataType == 'form') {
-      // fetch response header normal (form data)
-      responseHeader = {
-        method: "PUT",
-        headers: {
-          "Authorization": "Bearer ".concat(localStorage.accessToken)
-        },
-        body: userData
-      }; // json data
-    } else if (dataType == 'json') {
-      responseHeader = {
-        method: "PUT",
-        headers: {
-          "Authorization": "Bearer ".concat(localStorage.accessToken),
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(userData)
-      };
-    } // make fetch request to backend
-
-
-    const response = await fetch("".concat(_App.default.apiBase, "/user/").concat(userId), responseHeader); // if response not ok
-
-    if (!response.ok) {
-      // console log error
-      const err = await response.json();
-      if (err) console.log(err); // throw error (exit this function)      
-
-      throw new Error('Problem updating user');
-    } // convert response payload into json - store as data
-
-
-    const data = await response.json(); // return data
-
-    return data;
-  }
-
-  async getUser(userId) {
-    if (!userId) return;
-    const response = await fetch("".concat(_App.default.apiBase, "/user/").concat(userId), {
-      headers: {
-        "Authorization": "Bearer ".concat(localStorage.accessToken)
-      }
-    });
-
-    if (!response.ok) {
-      const err = await response.json();
-      if (err) console.log(err);
-      throw new Error('Problem getting user');
-    }
-
-    const data = await response.json();
-    return data;
-  }
-
-  async addFavDesign(designId) {
-    // validate
-    if (!designId) return; // fetch the json data
-
-    const response = await fetch("".concat(_App.default.apiBase, "/user/addFavDesign"), {
-      method: "PUT",
-      headers: {
-        "Authorization": "Bearer ".concat(localStorage.accessToken),
-        "Content-Type": 'application/json'
-      },
-      body: JSON.stringify({
-        designId: designId
-      })
-    }); // if response not ok
-
-    if (!response.ok) {
-      // console log error
-      const err = await response.json();
-      if (err) console.log(err); // throw error (exit this function)      
-
-      throw new Error('Problem adding design to favourites');
-    } // convert response payload into json - store as data
-
-
-    const data = await response.json(); // return data
-
-    return data;
-  }
-
-  async getAllUsers() {
-    // fetch the json data
-    const response = await fetch("".concat(_App.default.apiBase, "/allusers"), {
-      headers: {
-        "Authorization": "Bearer ".concat(localStorage.accessToken)
-      }
-    }); // if response not ok
-
-    if (!response.ok) {
-      // console log error
-      const err = await response.json();
-      if (err) console.log(err); // throw error (exit this function)      
-
-      throw new Error('Problem getting all users');
-    } // convert response payload into json - store as data
-
-
-    const data = await response.json(); // return data
-
-    return data;
-  }
-
-}
-
-var _default = new UserAPI();
-
-exports.default = _default;
-},{"./App":"App.js","./Auth":"Auth.js","./Toast":"Toast.js"}],"views/pages/editProfile.js":[function(require,module,exports) {
+},{"./../../App":"App.js","lit-html":"../node_modules/lit-html/lit-html.js","./../../Router":"Router.js","./../../Auth":"Auth.js","./../../Utils":"Utils.js","../../Toast":"Toast.js","../../UserAPI":"UserAPI.js","../../DesignAPI":"DesignAPI.js","moment":"../node_modules/moment/moment.js"}],"views/pages/editProfile.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -14038,79 +14223,7 @@ class TemplateView {
 var _default = new TemplateView();
 
 exports.default = _default;
-},{"../../App":"App.js","lit-html":"../node_modules/lit-html/lit-html.js","../../Router":"Router.js","../../Auth":"Auth.js","../../Utils":"Utils.js","./../../UserAPI":"UserAPI.js","../../Toast":"Toast.js"}],"DesignAPI.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _App = _interopRequireDefault(require("./App"));
-
-var _Auth = _interopRequireDefault(require("./Auth"));
-
-var _Toast = _interopRequireDefault(require("./Toast"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-class DesignAPI {
-  async newDesign(formData) {
-    // send fetch request
-    const response = await fetch("".concat(_App.default.apiBase, "/design"), {
-      method: 'POST',
-      headers: {
-        "Authorization": "Bearer ".concat(localStorage.accessToken)
-      },
-      body: formData
-    }); // if response not ok
-
-    if (!response.ok) {
-      let message = 'Problem adding design';
-
-      if (response.status == 400) {
-        const err = await response.json();
-        message = err.message;
-      } // throw error (exit this function)      
-
-
-      throw new Error(message);
-    } // convert response payload into json - store as data
-
-
-    const data = await response.json(); // return data
-
-    return data;
-  }
-
-  async getDesigns() {
-    // fetch the json data
-    const response = await fetch("".concat(_App.default.apiBase, "/design"), {
-      headers: {
-        "Authorization": "Bearer ".concat(localStorage.accessToken)
-      }
-    }); // if response not ok
-
-    if (!response.ok) {
-      // console log error
-      const err = await response.json();
-      if (err) console.log(err); // throw error (exit this function)      
-
-      throw new Error('Problem getting designs');
-    } // convert response payload into json - store as data
-
-
-    const data = await response.json(); // return data
-
-    return data;
-  }
-
-}
-
-var _default = new DesignAPI();
-
-exports.default = _default;
-},{"./App":"App.js","./Auth":"Auth.js","./Toast":"Toast.js"}],"views/pages/designers.js":[function(require,module,exports) {
+},{"../../App":"App.js","lit-html":"../node_modules/lit-html/lit-html.js","../../Router":"Router.js","../../Auth":"Auth.js","../../Utils":"Utils.js","./../../UserAPI":"UserAPI.js","../../Toast":"Toast.js"}],"views/pages/designers.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -14361,7 +14474,7 @@ class designsView {
 
   clearFilterBtns() {
     const filterBtns = document.querySelectorAll('.filter-btn');
-    filterBtns.forEach(btn => btn.removeAttribute("type"));
+    filterBtns.forEach(btn => btn.setAttribute('type', 'default'));
   }
 
   handleFilterBtn(e) {
@@ -14389,12 +14502,6 @@ class designsView {
     } catch (err) {
       _Toast.default.show(err, 'error');
     }
-  }
-
-  async priceZero() {
-    if (shadowRoot.querySelect('h3') == '$0') {
-      design.price = 'Free';
-    } else return;
   }
 
   render() {
@@ -14477,7 +14584,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 class favouriteDesigns {
   async init() {
-    document.title = 'Template';
+    document.title = 'Favourites';
     this.favDesigns = null;
     this.render();
 
@@ -14553,6 +14660,8 @@ class newDesignView {
     this.render();
 
     _Utils.default.pageIntroAnim();
+
+    _Utils.default.newDesignArtworkAnim();
   }
 
   async newDesignSubmitHandler(e) {
@@ -14614,10 +14723,66 @@ var _Utils = _interopRequireDefault(require("../../Utils"));
 
 var _moment = _interopRequireDefault(require("moment"));
 
+var _UserAPI = _interopRequireDefault(require("../../UserAPI"));
+
+var _DesignAPI = _interopRequireDefault(require("../../DesignAPI"));
+
+var _Toast = _interopRequireDefault(require("../../Toast"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _templateObject5() {
+function _templateObject10() {
+  const data = _taggedTemplateLiteral(["\n            <va-design class=\"design-card\"\n            id=\"", "\"\n            name=\"", "\" \n            description=\"", "\"\n            price=\"", "\"\n            user=\"", "\"\n            image=\"", "\"\n            gender=\"", "\"\n            length=\"", "\"\n            >\n            </va-design>\n\n              \n              "]);
+
+  _templateObject10 = function _templateObject10() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject9() {
+  const data = _taggedTemplateLiteral(["\n          ", "\n          "]);
+
+  _templateObject9 = function _templateObject9() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject8() {
+  const data = _taggedTemplateLiteral(["\n            <sl-spinner></sl-spinner>\n          "]);
+
+  _templateObject8 = function _templateObject8() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject7() {
   const data = _taggedTemplateLiteral(["\n        <p>No bio found.</p>\n        "]);
+
+  _templateObject7 = function _templateObject7() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject6() {
+  const data = _taggedTemplateLiteral(["\n        <h3>Bio</h3>\n        <p>", "</p>\n        "]);
+
+  _templateObject6 = function _templateObject6() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject5() {
+  const data = _taggedTemplateLiteral(["\n        <sl-avatar style=\"--size: 200px; margin-bottom: 1em;\"></sl-avatar>\n        "]);
 
   _templateObject5 = function _templateObject5() {
     return data;
@@ -14627,7 +14792,7 @@ function _templateObject5() {
 }
 
 function _templateObject4() {
-  const data = _taggedTemplateLiteral(["\n        <h3>Bio</h3>\n        <p>", "</p>\n        "]);
+  const data = _taggedTemplateLiteral(["\n          <sl-avatar style=\"--size: 200px; margin-bottom: 1em;\" image=", "></sl-avatar>\n        "]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -14637,7 +14802,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  const data = _taggedTemplateLiteral(["\n        <sl-avatar style=\"--size: 200px; margin-bottom: 1em;\"></sl-avatar>\n        "]);
+  const data = _taggedTemplateLiteral(["\n\n        ", "\n        <h2>", " ", "</h2>\n        <p>Contact me at ", "</p>\n        \n        <p>Last update was ", "</p>\n\n        ", "\n      \n      "]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -14647,7 +14812,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  const data = _taggedTemplateLiteral(["\n          <sl-avatar style=\"--size: 200px; margin-bottom: 1em;\" image=", "></sl-avatar>\n        "]);
+  const data = _taggedTemplateLiteral(["\n        <sl-spinner></sl-spinner>\n      "]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -14657,7 +14822,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  const data = _taggedTemplateLiteral(["\n      <va-app-header title=\"Profile\" user=\"", "\"></va-app-header>\n      <div class=\"page-content calign\">        \n        ", "\n        <h2>", " ", "</h2>\n        <p>Contact me at ", "</p>\n        \n        <p>Last update was ", "</p>\n\n\n\n        ", "\n  \n\n        <sl-button @click=", ">Edit Profile</sl-button>\n      </div>      \n    "]);
+  const data = _taggedTemplateLiteral(["\n      <va-app-header title=\"Profile\" user=\"", "\"></va-app-header>\n      <div class=\"page-content\">\n        <div class=\"profile-centre\">\n      ", "  \n      </div>\n    \n      <div class=\"designs-container\">\n          ", "\n        </div>\n      </div>      \n      </div>  \n        \n  \n        \n      </div>      \n    "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -14669,16 +14834,50 @@ function _templateObject() {
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 class specificProfileView {
-  init() {
+  async init() {
     console.log('ProfileView.init');
     document.title = 'Profile';
+    this.user = null;
+    this.userId = null;
+    await this.getUser();
+    await this.filterDesigns('published', this.userId);
     this.render();
 
     _Utils.default.pageIntroAnim();
   }
 
+  async getUser() {
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      var userId = urlParams.get('id');
+      console.log(userId);
+      this.userId = urlParams.get('id');
+      this.user = await _UserAPI.default.getPublicUser(userId);
+      this.render();
+    } catch (err) {
+      _Toast.default.show(err);
+    }
+  }
+
+  async filterDesigns(field, match) {
+    // validate
+    if (!field || !match) return; // get fresh copy of designs
+
+    this.designs = await _DesignAPI.default.getDesigns();
+    let filteredDesigns; // filter designs published by user based on their ID
+
+    if (field == 'published') {
+      const currentUser = await _UserAPI.default.getUser(_Auth.default.currentUser._id);
+      filteredDesigns = this.designs.filter(design => design.user._id == match);
+    } //render
+
+
+    this.designs = filteredDesigns;
+    this.render();
+  }
+
   render() {
-    const template = (0, _litHtml.html)(_templateObject(), JSON.stringify(_Auth.default.currentUser), _Auth.default.currentUser && _Auth.default.currentUser.avatar ? (0, _litHtml.html)(_templateObject2(), _Auth.default.currentUser && _Auth.default.currentUser.avatar ? "".concat(_App.default.apiBase, "/images/").concat(_Auth.default.currentUser.avatar) : '') : (0, _litHtml.html)(_templateObject3()), _Auth.default.currentUser.firstName, _Auth.default.currentUser.lastName, _Auth.default.currentUser.email, (0, _moment.default)(_Auth.default.currentUser.updatedAt).format('MMMM Do YYYY, @ h:mm a'), _Auth.default.currentUser.bio ? (0, _litHtml.html)(_templateObject4(), _Auth.default.currentUser.bio) : (0, _litHtml.html)(_templateObject5()), () => (0, _Router.gotoRoute)('/editProfile'));
+    const template = (0, _litHtml.html)(_templateObject(), JSON.stringify(_Auth.default.currentUser), this.user == null ? (0, _litHtml.html)(_templateObject2()) : (0, _litHtml.html)(_templateObject3(), this.user && this.user.avatar ? (0, _litHtml.html)(_templateObject4(), this.user && this.user.avatar ? "".concat(_App.default.apiBase, "/images/").concat(this.user.avatar) : '') : (0, _litHtml.html)(_templateObject5()), this.user.firstName, this.user.lastName, this.user.email, (0, _moment.default)(this.user.updatedAt).format('MMMM Do YYYY, @ h:mm a'), this.user.bio ? (0, _litHtml.html)(_templateObject6(), this.user.bio) : (0, _litHtml.html)(_templateObject7())), this.designs == null ? (0, _litHtml.html)(_templateObject8()) : (0, _litHtml.html)(_templateObject9(), this.designs.map(design => (0, _litHtml.html)(_templateObject10(), design._id, design.name, design.description, design.price, JSON.stringify(design.user), design.image, design.gender, design.length))));
     (0, _litHtml.render)(template, _App.default.rootEl);
   }
 
@@ -14687,7 +14886,7 @@ class specificProfileView {
 var _default = new specificProfileView();
 
 exports.default = _default;
-},{"../../App":"App.js","lit-html":"../node_modules/lit-html/lit-html.js","../../Router":"Router.js","../../Auth":"Auth.js","../../Utils":"Utils.js","moment":"../node_modules/moment/moment.js"}],"Router.js":[function(require,module,exports) {
+},{"../../App":"App.js","lit-html":"../node_modules/lit-html/lit-html.js","../../Router":"Router.js","../../Auth":"Auth.js","../../Utils":"Utils.js","moment":"../node_modules/moment/moment.js","../../UserAPI":"UserAPI.js","../../DesignAPI":"DesignAPI.js","../../Toast":"Toast.js"}],"Router.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -14737,7 +14936,7 @@ const routes = {
   '/designs': _design.default,
   '/favouriteDesigns': _favouriteDesigns.default,
   '/newDesign': _newDesign.default,
-  '/profile/:_id': _specificProfile.default
+  '/public': _specificProfile.default
 };
 
 class Router {
@@ -16713,7 +16912,7 @@ var _Toast = _interopRequireDefault(require("../Toast"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _templateObject2() {
-  const data = _taggedTemplateLiteral(["\n    <style>\n      .author {\n        font-size: 0.9em;\n        font-style: italic;\n        opacity: 0.8;\n      }\n      .moreInfoText{\n        position: absolute;\n        top: 120px;\n        left: 34%;\n        display: flex;\n        justify-items: center;\n        user-select: none;\n        cursor: pointer;\n        opacity: 0;\n        color: white;\n        pointer-events: none;\n      }\n\n\n      .design-image{\n        height: 300px;\n        width: 300px;\n        max-height: 100%;\n        max-width: 100%;\n        overflow: hidden;\n        justify-items: center;\n        display: grid;\n        justify-content: center;\n        \n      }\n\n      img.design-image{\n      cursor: pointer;\n      transform: scale(0.9);\n      }\n      img.design-image:hover {\n      cursor: pointer;\n      filter: blur(2px);\n      filter: brightness(1.1);\n      transform: scale(2);\n      transition: transform 0.1s ease-in-out;\n      }\n\n\n\n   \n\n      \n      @media all and (max-width: 768px){ \n    .designs-container{\n\n    display: grid;\n    grid-template-columns: repeat(auto-fit, minmax(160px, 200px));\n    grid-auto-rows: repeat(auto-fit, minmax(auto, auto));\n    grid-gap: 1em;\n    padding: 3em;\n    justify-items: center;\n    justify-content: center;\n    }\n    .design-image{\n      height: 200px;\n      width: 100%;\n    }\n    h2{\n      font-size:1.1rem;\n    }\n\n\n\n\n    \n  }\n\n    </style>\n\n    <sl-card>\n \n\n\n      <img @click=", " class=\"design-image\" slot=\"image\" src=\"", "/images/", "\" alt=\"", "\" />\n      <div class=\"moreInfoText\"><h3>More Info</h3></div>\n      <h2>", "</h2>\n      <h3>$", "</h3>\n      <a @click=", "><p class=\"author\">By ", " ", "</p></a>\n      <sl-button @click=", ">More info</sl-button>\n      <sl-icon-button name=\"heart-fill\" label=\"Add to favourites\" @click=", "></sl-icon-button>\n    </sl-card>\n    "]);
+  const data = _taggedTemplateLiteral(["\n    <style>\n      .author {\n        font-size: 0.9em;\n        font-style: italic;\n        opacity: 0.8;\n        cursor: pointer;\n      }\n      .moreInfoText{\n        position: absolute;\n        top: 120px;\n        left: 34%;\n        display: flex;\n        justify-items: center;\n        user-select: none;\n        cursor: pointer;\n        opacity: 0;\n        color: white;\n        pointer-events: none;\n      }\n\n\n      .design-image{\n        height: 300px;\n        width: 300px;\n        max-height: 100%;\n        max-width: 100%;\n        overflow: hidden;\n        justify-items: center;\n        display: grid;\n        justify-content: center;\n        \n      }\n\n      img.design-image{\n      cursor: pointer;\n      transform: scale(0.9);\n      }\n      img.design-image:hover {\n      cursor: pointer;\n      filter: blur(2px);\n      filter: brightness(1.1);\n      transform: scale(2);\n      transition: transform 0.1s ease-in-out;\n      }\n\n\n\n   \n\n      \n      @media all and (max-width: 768px){ \n    .designs-container{\n\n    display: grid;\n    grid-template-columns: repeat(auto-fit, minmax(160px, 200px));\n    grid-auto-rows: repeat(auto-fit, minmax(auto, auto));\n    grid-gap: 1em;\n    padding: 3em;\n    justify-items: center;\n    justify-content: center;\n    }\n    .design-image{\n      height: 200px;\n      width: 100%;\n    }\n    h2{\n      font-size:1.1rem;\n    }\n\n\n\n    \n  }\n\n    </style>\n\n    <sl-card>\n \n\n\n      <img @click=", " class=\"design-image\" slot=\"image\" src=\"", "/images/", "\" alt=\"", "\" />\n      <div class=\"moreInfoText\"><h3>More Info</h3></div>\n      <h2>", "</h2>\n      <h3>$", "</h3>\n      <a @click=", "><p class=\"author\">By ", " ", "</p></a>\n      <sl-button @click=", ">More info</sl-button>\n      <sl-icon-button name=\"heart-fill\" label=\"Add to favourites\" @click=", "></sl-icon-button>\n    </sl-card>\n    "]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -16810,7 +17009,7 @@ customElements.define('va-design', class Design extends _litElement.LitElement {
   }
 
   render() {
-    return (0, _litElement.html)(_templateObject2(), this.moreInfoHandler.bind(this), _App.default.apiBase, this.image, this.name, this.name, this.price, () => (0, _Router.gotoRoute)("/profile/".concat(this.user._id)), this.user.firstName, this.user.lastName, this.moreInfoHandler.bind(this), this.addFavHandler.bind(this));
+    return (0, _litElement.html)(_templateObject2(), this.moreInfoHandler.bind(this), _App.default.apiBase, this.image, this.name, this.name, this.price, () => (0, _Router.gotoRoute)("/public?id=".concat(this.user._id)), this.user.firstName, this.user.lastName, this.moreInfoHandler.bind(this), this.addFavHandler.bind(this));
   }
 
 });
@@ -16933,7 +17132,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60864" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49440" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

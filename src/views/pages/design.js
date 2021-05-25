@@ -58,7 +58,7 @@ class designsView {
 
   clearFilterBtns(){
     const filterBtns = document.querySelectorAll('.filter-btn')
-    filterBtns.forEach(btn => btn.removeAttribute("type"))
+    filterBtns.forEach(btn => btn.setAttribute('type', 'default'))
   }
 
 
@@ -95,12 +95,7 @@ class designsView {
     }
   }
 
-  async priceZero(){
-    if (shadowRoot.querySelect('h3') == '$0'){
-      design.price = 'Free'
-    }
-    else return
-  }
+
 
   render(){
     const template = html`

@@ -25,7 +25,7 @@ const routes = {
 	'/designs': designsView,
 	'/favouriteDesigns': favouriteDesignsView,
 	'/newDesign': newDesignsView,
-	'/profile/:_id': specificProfileView
+	'/public': specificProfileView
 	
 
 }

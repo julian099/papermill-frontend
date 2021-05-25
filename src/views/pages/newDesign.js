@@ -12,6 +12,7 @@ class newDesignView {
     document.title = 'Template'    
     this.render()    
     Utils.pageIntroAnim()
+    Utils.newDesignArtworkAnim()
   }
 
   async newDesignSubmitHandler(e){

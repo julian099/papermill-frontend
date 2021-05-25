@@ -9,7 +9,7 @@ import DesignAPI from '../../DesignAPI'
 
 class favouriteDesigns {
   async init(){
-    document.title = 'Template'
+    document.title = 'Favourites'
     this.favDesigns = null    
     this.render()
     Utils.favouriteArtworkAnim()    
