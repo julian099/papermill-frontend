@@ -6,7 +6,7 @@ import App from '../App'
 import UserAPI from '../UserAPI'
 import Toast from '../Toast'
 
-customElements.define('va-design', class Design extends LitElement {
+customElements.define('va-design-small', class DesignSmall extends LitElement {
   constructor(){
     super()    
   }
@@ -89,7 +89,8 @@ customElements.define('va-design', class Design extends LitElement {
           <h1>${this.name}</h1>
           <p>${this.description}</p>
           <p class="price">$${this.price}</p>
-
+          <p class="gender">Gender: <span>${this.gender}</span></p>
+          <p class="length">Length: <span>${this.length}</span></p>
 
           <sl-button @click=${this.addFavHandler.bind(this)}>
             <sl-icon slot="prefix" name="heart-fill"></sl-icon>
@@ -100,7 +101,6 @@ customElements.define('va-design', class Design extends LitElement {
             Download
             <a href="${App.apiBase}/images/${this.image}" download="${this.name}"></a>
           </sl-button>
-          <sl-button @click=${() => gotoRoute(`/public?id=${this.user._id}`)}><sl-icon slot="prefix" name="person"></sl-icon>Visit author</sl-button>
         </div>
       </div>
     `

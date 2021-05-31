@@ -7661,7 +7661,7 @@ class Utils {
     }, {
       opacity: 1,
       y: 0,
-      ease: 'bounce',
+      ease: 'power4',
       duration: 1.4
     });
   }
@@ -7679,7 +7679,7 @@ class Utils {
       y: 0,
       stagger: 0.3,
       ease: 'power4',
-      duration: 1,
+      duration: 0.8,
       delay: 1
     });
   }
@@ -7689,6 +7689,17 @@ class Utils {
     if (!pageContent) return;
 
     _gsap.default.fromTo(".filter-menu-wrapper", {
+      opacity: 1,
+      x: -2000
+    }, {
+      opacity: 1,
+      x: 0,
+      ease: 'power4',
+      duration: 2,
+      delay: 0.2
+    });
+
+    _gsap.default.fromTo(".search-bar-wrapper", {
       opacity: 1,
       x: -2000
     }, {
@@ -7712,12 +7723,12 @@ class Utils {
       y: 0,
       ease: 'power4',
       duration: 2,
-      delay: 0.5
+      delay: 0.8
     });
   }
 
   newDesignArtworkAnim() {
-    const pageContent = document.querySelector('.page-content');
+    const pageContent = document.querySelector('.page-content-secondary');
     if (!pageContent) return;
 
     _gsap.default.fromTo(".newdesign-artwork", {
@@ -7732,12 +7743,367 @@ class Utils {
     });
 
     _gsap.default.fromTo("article", {
-      y: 600
+      y: 1200
     }, {
       y: 0,
       ease: 'power4',
       duration: 1,
       delay: 0.5
+    });
+  }
+
+  designProfilesAnim() {
+    const pageContent = document.querySelector('.page-content');
+    if (!pageContent) return;
+
+    _gsap.default.fromTo(".designs-container", {
+      opacity: 0,
+      scale: 0
+    }, {
+      opacity: 1,
+      scale: 1,
+      ease: 'power4',
+      duration: 1,
+      delay: 0.5
+    });
+
+    _gsap.default.fromTo("#design_artwork", {
+      opacity: 1,
+      y: -600
+    }, {
+      opacity: 1,
+      y: 0,
+      ease: 'power4',
+      duration: 1.4
+    });
+  }
+
+  homeAnim() {
+    const pageContent = document.querySelector('.page-content');
+    if (!pageContent) return;
+
+    _gsap.default.fromTo(".home-item1", {
+      opacity: 0,
+      scale: 0
+    }, {
+      opacity: 1,
+      scale: 1,
+      ease: 'power4',
+      duration: 1
+    });
+
+    _gsap.default.fromTo(".home-item2", {
+      opacity: 0,
+      scale: 0
+    }, {
+      opacity: 1,
+      scale: 1,
+      ease: 'power4',
+      duration: 1,
+      delay: 0.2
+    });
+
+    _gsap.default.fromTo(".home-item3", {
+      opacity: 0,
+      scale: 0
+    }, {
+      opacity: 1,
+      scale: 1,
+      ease: 'power4',
+      duration: 1,
+      delay: 0.3
+    });
+
+    _gsap.default.fromTo(".home-item4", {
+      opacity: 0,
+      scale: 0
+    }, {
+      opacity: 1,
+      scale: 1,
+      ease: 'power4',
+      duration: 1,
+      delay: 0.4
+    });
+
+    _gsap.default.fromTo(".home-item5", {
+      opacity: 0,
+      scale: 0
+    }, {
+      opacity: 1,
+      scale: 1,
+      ease: 'power4',
+      duration: 1,
+      delay: 0.5
+    });
+
+    _gsap.default.fromTo(".home-item6", {
+      opacity: 0,
+      scale: 0
+    }, {
+      opacity: 1,
+      scale: 1,
+      ease: 'power4',
+      duration: 1,
+      delay: 0.6
+    });
+  }
+
+  guideAnim() {
+    const pageContent = document.querySelector('.page-content');
+    if (!pageContent) return;
+
+    _gsap.default.fromTo(".guide-text-1", {
+      opacity: 0,
+      scale: 0
+    }, {
+      opacity: 1,
+      scale: 1,
+      ease: 'power4',
+      duration: 1,
+      delay: 0.1
+    });
+
+    _gsap.default.fromTo(".guide-text-2", {
+      opacity: 0,
+      scale: 0
+    }, {
+      opacity: 1,
+      scale: 1,
+      ease: 'power4',
+      duration: 1,
+      delay: 3
+    });
+
+    _gsap.default.fromTo(".home-item1", {
+      opacity: 0,
+      scale: 0
+    }, {
+      opacity: 1,
+      scale: 1,
+      ease: 'power4',
+      duration: 1,
+      delay: 3.4
+    });
+
+    _gsap.default.fromTo(".home-item2", {
+      opacity: 0,
+      scale: 0
+    }, {
+      opacity: 1,
+      scale: 1,
+      ease: 'power4',
+      duration: 1,
+      delay: 1000
+    });
+
+    _gsap.default.fromTo(".home-item3", {
+      opacity: 0,
+      scale: 0
+    }, {
+      opacity: 1,
+      scale: 1,
+      ease: 'power4',
+      duration: 1,
+      delay: 1000
+    });
+
+    _gsap.default.fromTo(".home-item4", {
+      opacity: 0,
+      scale: 0
+    }, {
+      opacity: 1,
+      scale: 1,
+      ease: 'power4',
+      duration: 1,
+      delay: 1000
+    });
+
+    _gsap.default.fromTo(".home-item5", {
+      opacity: 0,
+      scale: 0
+    }, {
+      opacity: 1,
+      scale: 1,
+      ease: 'power4',
+      duration: 1,
+      delay: 1000
+    });
+
+    _gsap.default.fromTo(".home-item6", {
+      opacity: 0,
+      scale: 0
+    }, {
+      opacity: 1,
+      scale: 1,
+      ease: 'power4',
+      duration: 1,
+      delay: 1000
+    });
+  }
+
+  guideAnimTwo() {
+    const pageContent = document.querySelector('.page-content');
+    if (!pageContent) return;
+
+    _gsap.default.to(".home-item1", {
+      opacity: 0,
+      scale: 0,
+      visibility: "hidden",
+      ease: 'power4',
+      duration: 0.5,
+      delay: 0
+    });
+
+    _gsap.default.fromTo(".home-item2", {
+      opacity: 0,
+      scale: 0
+    }, {
+      opacity: 1,
+      scale: 1,
+      ease: 'power4',
+      duration: 1,
+      delay: 0
+    });
+  }
+
+  guideAnimThree() {
+    const pageContent = document.querySelector('.page-content');
+    if (!pageContent) return;
+
+    _gsap.default.to(".home-item2", {
+      opacity: 0,
+      scale: 0,
+      visibility: "hidden",
+      ease: 'power4',
+      duration: 0.5,
+      delay: 0
+    });
+
+    _gsap.default.fromTo(".home-item3", {
+      opacity: 0,
+      scale: 0
+    }, {
+      opacity: 1,
+      scale: 1,
+      ease: 'power4',
+      duration: 1,
+      delay: 0
+    });
+  }
+
+  guideAnimFour() {
+    const pageContent = document.querySelector('.page-content');
+    if (!pageContent) return;
+
+    _gsap.default.to(".home-item3", {
+      opacity: 0,
+      scale: 0,
+      visibility: "hidden",
+      ease: 'power4',
+      duration: 0.5,
+      delay: 0
+    });
+
+    _gsap.default.fromTo(".home-item4", {
+      opacity: 0,
+      scale: 0
+    }, {
+      opacity: 1,
+      scale: 1,
+      ease: 'power4',
+      duration: 1,
+      delay: 0
+    });
+  }
+
+  guideAnimFive() {
+    const pageContent = document.querySelector('.page-content');
+    if (!pageContent) return;
+
+    _gsap.default.to(".home-item4", {
+      opacity: 0,
+      scale: 0,
+      visibility: "hidden",
+      ease: 'power4',
+      duration: 0.5,
+      delay: 0
+    });
+
+    _gsap.default.fromTo(".home-item5", {
+      opacity: 0,
+      scale: 0
+    }, {
+      opacity: 1,
+      scale: 1,
+      ease: 'power4',
+      duration: 1,
+      delay: 0
+    });
+  }
+
+  guideAnimSix() {
+    const pageContent = document.querySelector('.page-content');
+    if (!pageContent) return;
+
+    _gsap.default.to(".home-item5", {
+      opacity: 0,
+      scale: 0,
+      visibility: "hidden",
+      ease: 'power4',
+      duration: 0.5,
+      delay: 0
+    });
+
+    _gsap.default.fromTo(".home-item6", {
+      opacity: 0,
+      scale: 0
+    }, {
+      opacity: 1,
+      scale: 1,
+      ease: 'power4',
+      duration: 1,
+      delay: 0
+    });
+  }
+
+  guideAnimSeven() {
+    const pageContent = document.querySelector('.page-content');
+    if (!pageContent) return;
+
+    _gsap.default.to(".home-item6", {
+      opacity: 0,
+      scale: 0,
+      ease: 'power4',
+      duration: 0.5,
+      delay: 0
+    });
+  }
+
+  hidePromptAnim() {
+    const pageContent = document.querySelector('.page-content');
+    if (!pageContent) return;
+
+    _gsap.default.to(".guide-text-2", {
+      opacity: 0,
+      scale: 0,
+      visibility: "hidden",
+      ease: 'power4',
+      duration: 0.5,
+      delay: 0
+    });
+  }
+
+  profileAnim() {
+    const pageContent = document.querySelector('.page-content');
+
+    _gsap.default.fromTo(".profile-grid", {
+      opacity: 0,
+      y: -400
+    }, {
+      opacity: 1,
+      y: 0,
+      ease: 'power4',
+      duration: 0.3
     });
   }
 
@@ -7767,7 +8133,7 @@ var _Utils = _interopRequireDefault(require("./../../Utils"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _templateObject() {
-  const data = _taggedTemplateLiteral(["\n      <va-app-header title=\"Home\" user=", "></va-app-header>\n      \n      <div class=\"page-content\">\n        <h1 class=\"anim-in\">Hey ", "</h1>\n        \n        <h3>Button example:</h3>\n        <sl-button class=\"anim-in\" @click=", ">View Profile</sl-button>\n        <p>&nbsp;</p>\n        <h3>Link example</h3>\n        <a href=\"/profile\" @click=", ">View Profile</a>\n        \n\n\n\n      </div>\n     \n    "]);
+  const data = _taggedTemplateLiteral(["\n      <va-app-header title=\"Home\" user=", "></va-app-header>\n      <div class=\"page-content calign\">\n\n\n        <div class=\"home-container-main calign\">\n      <div class=\"grid-container-home\">\n <div class=\"home-item1 calign\" @click=", "><sl-tooltip content=\"Find the design for your next project\">\n <div class=\"home_image_wrapper\">\n              <img class=\"home_artwork\" src=\"/images/discover_artwork_home.svg\">\n              </div>\n              <h3 class=\"home_title\">Find a design</h3>\n\n\n        </div>\n    <div class=\"home-item2 calign\" @click=", "><sl-tooltip content=\"See what others are creating\">\n    <div class=\"home_image_wrapper\">\n              <img class=\"home_artwork\" src=\"/images/designers_artwork_home.svg\">\n              </div>\n              <h3 class=\"home_title\">Find a designer</h3>\n    </div>\n    <div class=\"home-item3 calign\" @click=", "><sl-tooltip content=\"Share your creations with the world\">\n    <div class=\"home_image_wrapper\">\n              <img class=\"home_artwork\" src=\"/images/add_design_home.svg\">\n              </div>\n              <h3 class=\"home_title\">Add your own design</h3>\n    </div>\n    <div class=\"home-item4 calign\" @click=", "><sl-tooltip content=\"Designs that you love\">\n    <div class=\"home_image_wrapper\">\n              <img class=\"home_artwork\" src=\"/images/favourites_artwork_final_home.svg\">\n              </div>\n              <h3 class=\"home_title\">Your favourite designs</h3>\n    </div>\n    <div class=\"home-item5 calign\" @click=", "><sl-tooltip content=\"Time for an update?\">\n    <div class=\"home_image_wrapper\">\n    <img class=\"home_artwork\" src=\"/images/profile_artwork_home.svg\">\n              </div>\n              <h3 class=\"home_title\">Your profile</h3>\n    </div>\n    <div class=\"home-item6 calign\" @click=", "><sl-tooltip content=\"Hand-picked every week!\">\n    <div class=\"home_image_wrapper\">\n              <img class=\"home_artwork\" src=\"/images/user_spotlight_home.svg\">\n              </div>\n              <h3 class=\"home_title\">Weekly user spotlight</h3>\n    </div>\n\n\n\n      </div>\n      </div> \n      </div> \n      <div class=\"wrap\">\n<svg class=\"svg\" xmlns=\"http://www.w3.org/2000/svg\">  \n  <path d=\"m2.46177,126.39581c10.12618,-0.06577 20.25237,-0.13151 30.37857,-0.19726c0.06666,-10.3997 0.13333,-20.7994 0.19999,-31.19908c10.07782,0 20.15564,0 30.23346,0c0,-10.46351 0,-20.927 0,-31.39051c10.33589,0 20.67178,0 31.00767,0c0,-10.20827 0,-20.41656 0,-30.62485c10.20829,0 20.41656,0 30.62485,0c0,-10.20829 0,-20.41658 0,-30.62487c15.18483,0 30.36965,0 45.55448,0c0,5.10414 0,10.20829 0,15.31243c-10.08071,0 -20.16136,0 -30.24206,0c0,10.33589 0,20.67178 0,31.00769c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33589 0,20.67178 0,31.00767c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33591 0,20.6718 0,31.00767c-10.33589,0 -20.67178,0 -31.00767,0c0,10.46351 0,20.927 0,31.39049c-15.31243,0 -30.62485,0 -45.93728,0c0.68263,-5.07223 -1.16374,-10.79174 0.43769,-15.68938l0,0z\" stroke-width=\"7\" fill=\"none\"/>\n</svg>\n\n<svg class=\"svg2\" xmlns=\"http://www.w3.org/2000/svg\">  \n  <path d=\"m2.46177,126.39581c10.12618,-0.06577 20.25237,-0.13151 30.37857,-0.19726c0.06666,-10.3997 0.13333,-20.7994 0.19999,-31.19908c10.07782,0 20.15564,0 30.23346,0c0,-10.46351 0,-20.927 0,-31.39051c10.33589,0 20.67178,0 31.00767,0c0,-10.20827 0,-20.41656 0,-30.62485c10.20829,0 20.41656,0 30.62485,0c0,-10.20829 0,-20.41658 0,-30.62487c15.18483,0 30.36965,0 45.55448,0c0,5.10414 0,10.20829 0,15.31243c-10.08071,0 -20.16136,0 -30.24206,0c0,10.33589 0,20.67178 0,31.00769c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33589 0,20.67178 0,31.00767c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33591 0,20.6718 0,31.00767c-10.33589,0 -20.67178,0 -31.00767,0c0,10.46351 0,20.927 0,31.39049c-15.31243,0 -30.62485,0 -45.93728,0c0.68263,-5.07223 -1.16374,-10.79174 0.43769,-15.68938l0,0z\" stroke-width=\"7\" fill=\"none\"/>\n</svg>\n\n<svg class=\"svg\" xmlns=\"http://www.w3.org/2000/svg\">\n  <path d=\"m2.46177,126.39581c10.12618,-0.06577 20.25237,-0.13151 30.37857,-0.19726c0.06666,-10.3997 0.13333,-20.7994 0.19999,-31.19908c10.07782,0 20.15564,0 30.23346,0c0,-10.46351 0,-20.927 0,-31.39051c10.33589,0 20.67178,0 31.00767,0c0,-10.20827 0,-20.41656 0,-30.62485c10.20829,0 20.41656,0 30.62485,0c0,-10.20829 0,-20.41658 0,-30.62487c15.18483,0 30.36965,0 45.55448,0c0,5.10414 0,10.20829 0,15.31243c-10.08071,0 -20.16136,0 -30.24206,0c0,10.33589 0,20.67178 0,31.00769c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33589 0,20.67178 0,31.00767c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33591 0,20.6718 0,31.00767c-10.33589,0 -20.67178,0 -31.00767,0c0,10.46351 0,20.927 0,31.39049c-15.31243,0 -30.62485,0 -45.93728,0c0.68263,-5.07223 -1.16374,-10.79174 0.43769,-15.68938l0,0z\" stroke-width=\"7\" fill=\"none\"/>\n</svg>\n\n<svg class=\"svg2\" xmlns=\"http://www.w3.org/2000/svg\">\n  <path d=\"m2.46177,126.39581c10.12618,-0.06577 20.25237,-0.13151 30.37857,-0.19726c0.06666,-10.3997 0.13333,-20.7994 0.19999,-31.19908c10.07782,0 20.15564,0 30.23346,0c0,-10.46351 0,-20.927 0,-31.39051c10.33589,0 20.67178,0 31.00767,0c0,-10.20827 0,-20.41656 0,-30.62485c10.20829,0 20.41656,0 30.62485,0c0,-10.20829 0,-20.41658 0,-30.62487c15.18483,0 30.36965,0 45.55448,0c0,5.10414 0,10.20829 0,15.31243c-10.08071,0 -20.16136,0 -30.24206,0c0,10.33589 0,20.67178 0,31.00769c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33589 0,20.67178 0,31.00767c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33591 0,20.6718 0,31.00767c-10.33589,0 -20.67178,0 -31.00767,0c0,10.46351 0,20.927 0,31.39049c-15.31243,0 -30.62485,0 -45.93728,0c0.68263,-5.07223 -1.16374,-10.79174 0.43769,-15.68938l0,0z\" stroke-width=\"7\" fill=\"none\"/>\n</svg>\n\n<svg class=\"svg\" xmlns=\"http://www.w3.org/2000/svg\">\n  <path d=\"m2.46177,126.39581c10.12618,-0.06577 20.25237,-0.13151 30.37857,-0.19726c0.06666,-10.3997 0.13333,-20.7994 0.19999,-31.19908c10.07782,0 20.15564,0 30.23346,0c0,-10.46351 0,-20.927 0,-31.39051c10.33589,0 20.67178,0 31.00767,0c0,-10.20827 0,-20.41656 0,-30.62485c10.20829,0 20.41656,0 30.62485,0c0,-10.20829 0,-20.41658 0,-30.62487c15.18483,0 30.36965,0 45.55448,0c0,5.10414 0,10.20829 0,15.31243c-10.08071,0 -20.16136,0 -30.24206,0c0,10.33589 0,20.67178 0,31.00769c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33589 0,20.67178 0,31.00767c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33591 0,20.6718 0,31.00767c-10.33589,0 -20.67178,0 -31.00767,0c0,10.46351 0,20.927 0,31.39049c-15.31243,0 -30.62485,0 -45.93728,0c0.68263,-5.07223 -1.16374,-10.79174 0.43769,-15.68938l0,0z\" stroke-width=\"7\" fill=\"none\"/>\n</svg>\n\n<svg class=\"svg2\" xmlns=\"http://www.w3.org/2000/svg\">\n  <path d=\"m2.46177,126.39581c10.12618,-0.06577 20.25237,-0.13151 30.37857,-0.19726c0.06666,-10.3997 0.13333,-20.7994 0.19999,-31.19908c10.07782,0 20.15564,0 30.23346,0c0,-10.46351 0,-20.927 0,-31.39051c10.33589,0 20.67178,0 31.00767,0c0,-10.20827 0,-20.41656 0,-30.62485c10.20829,0 20.41656,0 30.62485,0c0,-10.20829 0,-20.41658 0,-30.62487c15.18483,0 30.36965,0 45.55448,0c0,5.10414 0,10.20829 0,15.31243c-10.08071,0 -20.16136,0 -30.24206,0c0,10.33589 0,20.67178 0,31.00769c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33589 0,20.67178 0,31.00767c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33591 0,20.6718 0,31.00767c-10.33589,0 -20.67178,0 -31.00767,0c0,10.46351 0,20.927 0,31.39049c-15.31243,0 -30.62485,0 -45.93728,0c0.68263,-5.07223 -1.16374,-10.79174 0.43769,-15.68938l0,0z\" stroke-width=\"7\" fill=\"none\"/>\n</svg>\n\n<svg class=\"svg\" xmlns=\"http://www.w3.org/2000/svg\">\n  <path d=\"m2.46177,126.39581c10.12618,-0.06577 20.25237,-0.13151 30.37857,-0.19726c0.06666,-10.3997 0.13333,-20.7994 0.19999,-31.19908c10.07782,0 20.15564,0 30.23346,0c0,-10.46351 0,-20.927 0,-31.39051c10.33589,0 20.67178,0 31.00767,0c0,-10.20827 0,-20.41656 0,-30.62485c10.20829,0 20.41656,0 30.62485,0c0,-10.20829 0,-20.41658 0,-30.62487c15.18483,0 30.36965,0 45.55448,0c0,5.10414 0,10.20829 0,15.31243c-10.08071,0 -20.16136,0 -30.24206,0c0,10.33589 0,20.67178 0,31.00769c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33589 0,20.67178 0,31.00767c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33591 0,20.6718 0,31.00767c-10.33589,0 -20.67178,0 -31.00767,0c0,10.46351 0,20.927 0,31.39049c-15.31243,0 -30.62485,0 -45.93728,0c0.68263,-5.07223 -1.16374,-10.79174 0.43769,-15.68938l0,0z\" stroke-width=\"7\" fill=\"none\"/>\n</svg>\n\n<svg class=\"svg2\" xmlns=\"http://www.w3.org/2000/svg\">\n  <path d=\"m2.46177,126.39581c10.12618,-0.06577 20.25237,-0.13151 30.37857,-0.19726c0.06666,-10.3997 0.13333,-20.7994 0.19999,-31.19908c10.07782,0 20.15564,0 30.23346,0c0,-10.46351 0,-20.927 0,-31.39051c10.33589,0 20.67178,0 31.00767,0c0,-10.20827 0,-20.41656 0,-30.62485c10.20829,0 20.41656,0 30.62485,0c0,-10.20829 0,-20.41658 0,-30.62487c15.18483,0 30.36965,0 45.55448,0c0,5.10414 0,10.20829 0,15.31243c-10.08071,0 -20.16136,0 -30.24206,0c0,10.33589 0,20.67178 0,31.00769c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33589 0,20.67178 0,31.00767c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33591 0,20.6718 0,31.00767c-10.33589,0 -20.67178,0 -31.00767,0c0,10.46351 0,20.927 0,31.39049c-15.31243,0 -30.62485,0 -45.93728,0c0.68263,-5.07223 -1.16374,-10.79174 0.43769,-15.68938l0,0z\" stroke-width=\"7\" fill=\"none\"/>\n</svg>\n\n<svg class=\"svg\" xmlns=\"http://www.w3.org/2000/svg\">\n  <path d=\"m2.46177,126.39581c10.12618,-0.06577 20.25237,-0.13151 30.37857,-0.19726c0.06666,-10.3997 0.13333,-20.7994 0.19999,-31.19908c10.07782,0 20.15564,0 30.23346,0c0,-10.46351 0,-20.927 0,-31.39051c10.33589,0 20.67178,0 31.00767,0c0,-10.20827 0,-20.41656 0,-30.62485c10.20829,0 20.41656,0 30.62485,0c0,-10.20829 0,-20.41658 0,-30.62487c15.18483,0 30.36965,0 45.55448,0c0,5.10414 0,10.20829 0,15.31243c-10.08071,0 -20.16136,0 -30.24206,0c0,10.33589 0,20.67178 0,31.00769c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33589 0,20.67178 0,31.00767c-10.20829,0 -20.41656,0 -30.62485,0c0,10.33591 0,20.6718 0,31.00767c-10.33589,0 -20.67178,0 -31.00767,0c0,10.46351 0,20.927 0,31.39049c-15.31243,0 -30.62485,0 -45.93728,0c0.68263,-5.07223 -1.16374,-10.79174 0.43769,-15.68938l0,0z\" stroke-width=\"7\" fill=\"none\"/>\n</svg>\n</div>\n\n    "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -7785,10 +8151,12 @@ class HomeView {
     this.render();
 
     _Utils.default.pageIntroAnim();
+
+    _Utils.default.homeAnim();
   }
 
   render() {
-    const template = (0, _litHtml.html)(_templateObject(), JSON.stringify(_Auth.default.currentUser), _Auth.default.currentUser.firstName, () => (0, _Router.gotoRoute)('/profile'), _Router.anchorRoute);
+    const template = (0, _litHtml.html)(_templateObject(), JSON.stringify(_Auth.default.currentUser), () => (0, _Router.gotoRoute)('/designs'), () => (0, _Router.gotoRoute)('/designers'), () => (0, _Router.gotoRoute)('/newDesign'), () => (0, _Router.gotoRoute)('/favouriteDesigns'), () => (0, _Router.gotoRoute)('/profile'), () => (0, _Router.gotoRoute)('/public?id=60a66174f45c409a83f78d7a'));
     (0, _litHtml.render)(template, _App.default.rootEl);
   }
 
@@ -7812,7 +8180,7 @@ var _litHtml = require("lit-html");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _templateObject() {
-  const data = _taggedTemplateLiteral(["    \n      <div class=\"calign\">\n        <h1>Opps!</h1>\n        <p>Sorry, we couldn't find that.</p>\n      </div>\n    "]);
+  const data = _taggedTemplateLiteral(["    \n      <div class=\"calign\">\n        <h1 class=\"fourOhFour\">404!</h1>\n        <h1>Sorry about that.</h1>\n\n      </div>\n    "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -13890,8 +14258,28 @@ var _moment = _interopRequireDefault(require("moment"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _templateObject8() {
+function _templateObject10() {
   const data = _taggedTemplateLiteral(["\n            <va-design class=\"design-card\"\n            id=\"", "\"\n            name=\"", "\" \n            description=\"", "\"\n            price=\"", "\"\n            user=\"", "\"\n            image=\"", "\"\n            gender=\"", "\"\n            length=\"", "\"\n            >\n            </va-design>\n\n              \n              "]);
+
+  _templateObject10 = function _templateObject10() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject9() {
+  const data = _taggedTemplateLiteral(["\n          ", "\n          "]);
+
+  _templateObject9 = function _templateObject9() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject8() {
+  const data = _taggedTemplateLiteral(["\n            <sl-spinner></sl-spinner>\n          "]);
 
   _templateObject8 = function _templateObject8() {
     return data;
@@ -13901,7 +14289,7 @@ function _templateObject8() {
 }
 
 function _templateObject7() {
-  const data = _taggedTemplateLiteral(["\n          ", "\n          "]);
+  const data = _taggedTemplateLiteral(["\n        <p>No bio found.</p>\n        "]);
 
   _templateObject7 = function _templateObject7() {
     return data;
@@ -13911,7 +14299,7 @@ function _templateObject7() {
 }
 
 function _templateObject6() {
-  const data = _taggedTemplateLiteral(["\n            <sl-spinner></sl-spinner>\n          "]);
+  const data = _taggedTemplateLiteral(["\n   \n        <p>", "\n        "]);
 
   _templateObject6 = function _templateObject6() {
     return data;
@@ -13921,7 +14309,7 @@ function _templateObject6() {
 }
 
 function _templateObject5() {
-  const data = _taggedTemplateLiteral(["\n        <p>No bio found.</p>\n        "]);
+  const data = _taggedTemplateLiteral(["\n        <sl-avatar style=\"--size: 150px; margin-bottom: 1em;\"></sl-avatar>\n        "]);
 
   _templateObject5 = function _templateObject5() {
     return data;
@@ -13931,7 +14319,7 @@ function _templateObject5() {
 }
 
 function _templateObject4() {
-  const data = _taggedTemplateLiteral(["\n        <h3>Bio</h3>\n        <p>", "</p>\n        "]);
+  const data = _taggedTemplateLiteral(["\n          <sl-avatar shape=\"rounded\" style=\"--size: 250px; margin-bottom: 1em;\" image=", "></sl-avatar>\n        "]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -13941,7 +14329,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  const data = _taggedTemplateLiteral(["\n        <sl-avatar style=\"--size: 200px; margin-bottom: 1em;\"></sl-avatar>\n        "]);
+  const data = _taggedTemplateLiteral(["\n      <div class=\"profile-item1\">\n        \n        ", "\n        <h2>", " ", "</h2>\n                <p> \u2709 ", "</p>\n        </div>\n        <div class=\"profile-item2\">\n      \n        </div>\n        <div class=\"profile-item3\">\n      \n        </div>\n        <div class=\"edit-btn\">\n        <sl-button style @click=", "></p><sl-icon style=\"font-size: 32px;\" name=\"pencil-fill\"></sl-icon></sl-button>\n        </div>\n        <div class=\"profile-item4\">\n        ", "\n        </div>\n      "]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -13951,7 +14339,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  const data = _taggedTemplateLiteral(["\n          <sl-avatar style=\"--size: 200px; margin-bottom: 1em;\" image=", "></sl-avatar>\n        "]);
+  const data = _taggedTemplateLiteral(["\n        <sl-spinner></sl-spinner>\n      "]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -13961,7 +14349,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  const data = _taggedTemplateLiteral(["\n      <va-app-header title=\"Profile\" user=\"", "\"></va-app-header>\n      <div class=\"page-content calign\">        \n        ", "\n        <h2>", " ", "</h2>\n        <p>Contact me at ", "</p>\n        \n        <p>Last update was ", "</p>\n\n\n\n        ", "\n  \n\n        <sl-button @click=", ">Edit Profile</sl-button>\n        <div class=\"designs-container\">\n          ", "\n        </div>\n      </div>      \n      </div>  \n      \n        \n    "]);
+  const data = _taggedTemplateLiteral(["\n      <va-app-header title=\"Profile\" user=\"", "\"></va-app-header>\n      <div class=\"page-content\">\n        <div class=\"profile-centre\">\n          <div class=\"profile-grid\">\n      ", "  \n      </div>\n      \n      </div>\n      <div class=\"profile-title calign\"><h2>Your shared designs</h2><sl-icon name=\"arrow-down-square\" style=\"font-size: 32px;\"></sl-icon></div>\n    \n      <div class=\"designs-container-profile\">\n        \n          ", "\n        </div>\n      </div>      \n      </div>  \n        \n  \n        \n      </div>    \n      <div class=\"wrap\">\n\n      <svg class=\"svg3\" viewBox=\"0 0 500 500\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"15%\" id=\"blobSvg\">\n  <defs>\n    <linearGradient id=\"gradient\" x1=\"0%\" y1=\"0%\" x2=\"0%\" y2=\"100%\">\n      <stop offset=\"0%\" style=\"stop-color: rgb(238, 205, 163);\"></stop>\n      <stop offset=\"100%\" style=\"stop-color: #d6af87;\"></stop>\n    </linearGradient>\n  </defs>\n  <path id=\"blob\" d=\"M317.5,337Q150,424,171,286.5Q192,149,338.5,199.5Q485,250,317.5,337Z\" fill=\"url(#gradient)\"></path>\n</svg>\n\n<svg class=\"svg3\" viewBox=\"0 0 500 500\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"15%\" id=\"blobSvg\">\n  <defs>\n    <linearGradient id=\"gradient\" x1=\"0%\" y1=\"0%\" x2=\"0%\" y2=\"100%\">\n      <stop offset=\"0%\" style=\"stop-color: rgb(238, 205, 163);\"></stop>\n      <stop offset=\"100%\" style=\"stop-color: rgb(239, 98, 159);\"></stop>\n    </linearGradient>\n  </defs>\n  <path id=\"blob\" d=\"M409.5,310.5Q439,371,372.5,372Q306,373,263.5,412Q221,451,171.5,424.5Q122,398,121,343Q120,288,106,246Q92,204,94,138Q96,72,163,91Q230,110,273,108Q316,106,359.5,129Q403,152,391.5,201Q380,250,409.5,310.5Z\" fill=\"url(#gradient)\"></path>\n</svg>\n\n<svg class=\"svg3\" viewBox=\"0 0 500 500\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"15%\" id=\"blobSvg\">\n  <defs>\n    <linearGradient id=\"gradient\" x1=\"0%\" y1=\"0%\" x2=\"0%\" y2=\"100%\">\n      <stop offset=\"0%\" style=\"stop-color: rgb(238, 205, 163);\"></stop>\n      <stop offset=\"100%\" style=\"stop-color: rgb(239, 98, 159);\"></stop>\n    </linearGradient>\n  </defs>\n  <path id=\"blob\" d=\"M355.5,345.5Q312,441,192,410Q72,379,68.5,247Q65,115,179.5,114Q294,113,346.5,181.5Q399,250,355.5,345.5Z\" fill=\"url(#gradient)\"></path>\n</svg>\n\n\n<svg class=\"svg3\" viewBox=\"0 0 500 500\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"20%\" id=\"blobSvg\">\n  <defs>\n    <linearGradient id=\"gradient\" x1=\"0%\" y1=\"0%\" x2=\"0%\" y2=\"100%\">\n      <stop offset=\"0%\" style=\"stop-color: rgb(238, 205, 163);\"></stop>\n      <stop offset=\"100%\" style=\"stop-color: rgb(239, 98, 159);\"></stop>\n    </linearGradient>\n  </defs>\n  <path id=\"blob\" d=\"M355.5,345.5Q312,441,192,410Q72,379,68.5,247Q65,115,179.5,114Q294,113,346.5,181.5Q399,250,355.5,345.5Z\" fill=\"url(#gradient)\"></path>\n</svg>\n\n\n\n\n\n<svg class=\"svg3\" viewBox=\"0 0 500 500\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"20%\" id=\"blobSvg\">\n  <defs>\n    <linearGradient id=\"gradient\" x1=\"0%\" y1=\"0%\" x2=\"0%\" y2=\"100%\">\n      <stop offset=\"0%\" style=\"stop-color: rgb(238, 205, 163);\"></stop>\n      <stop offset=\"100%\" style=\"stop-color: rgb(239, 98, 159);\"></stop>\n    </linearGradient>\n  </defs>\n  <path id=\"blob\" d=\"M424.5,338.5Q352,427,254.5,418.5Q157,410,94.5,330Q32,250,95,170.5Q158,91,257.5,78Q357,65,427,157.5Q497,250,424.5,338.5Z\" fill=\"url(#gradient)\"></path>\n</svg>\n\n\n\n\n</div>  \n    "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -13977,15 +14365,24 @@ class ProfileView {
     console.log('ProfileView.init');
     document.title = 'Profile';
     this.designs = null;
+    this.user = null;
+    this.userId = null;
+    await this.getUser();
     this.render();
-
-    _Utils.default.pageIntroAnim();
-
-    await this.getDesigns();
+    await this.filterDesigns('published', _Auth.default.currentUser._id);
 
     _Utils.default.designContainerAnim();
+  }
 
-    await this.filterDesigns('published', '60a665e8f45c409a83f78d83');
+  async getUser() {
+    try {
+      var userId = _UserAPI.default.getUser(_Auth.default.currentUser._id);
+
+      console.log(userId);
+      this.render();
+    } catch (err) {
+      _Toast.default.show(err);
+    }
   }
 
   async filterDesigns(field, match) {
@@ -14016,7 +14413,7 @@ class ProfileView {
   }
 
   render() {
-    const template = (0, _litHtml.html)(_templateObject(), JSON.stringify(_Auth.default.currentUser), _Auth.default.currentUser && _Auth.default.currentUser.avatar ? (0, _litHtml.html)(_templateObject2(), _Auth.default.currentUser && _Auth.default.currentUser.avatar ? "".concat(_App.default.apiBase, "/images/").concat(_Auth.default.currentUser.avatar) : '') : (0, _litHtml.html)(_templateObject3()), _Auth.default.currentUser.firstName, _Auth.default.currentUser.lastName, _Auth.default.currentUser.email, (0, _moment.default)(_Auth.default.currentUser.updatedAt).format('MMMM Do YYYY, @ h:mm a'), _Auth.default.currentUser.bio ? (0, _litHtml.html)(_templateObject4(), _Auth.default.currentUser.bio) : (0, _litHtml.html)(_templateObject5()), () => (0, _Router.gotoRoute)('/editProfile'), this.designs == null ? (0, _litHtml.html)(_templateObject6()) : (0, _litHtml.html)(_templateObject7(), this.designs.map(design => (0, _litHtml.html)(_templateObject8(), design._id, design.name, design.description, design.price, JSON.stringify(design.user), design.image, design.gender, design.length))));
+    const template = (0, _litHtml.html)(_templateObject(), JSON.stringify(_Auth.default.currentUser), _Auth.default.currentUser == null ? (0, _litHtml.html)(_templateObject2()) : (0, _litHtml.html)(_templateObject3(), _Auth.default.currentUser && _Auth.default.currentUser.avatar ? (0, _litHtml.html)(_templateObject4(), _Auth.default.currentUser && _Auth.default.currentUser.avatar ? "".concat(_App.default.apiBase, "/images/").concat(_Auth.default.currentUser.avatar) : '') : (0, _litHtml.html)(_templateObject5()), _Auth.default.currentUser.firstName, _Auth.default.currentUser.lastName, _Auth.default.currentUser.email, () => (0, _Router.gotoRoute)('/editProfile'), _Auth.default.currentUser.bio ? (0, _litHtml.html)(_templateObject6(), _Auth.default.currentUser.bio) : (0, _litHtml.html)(_templateObject7())), this.designs == null ? (0, _litHtml.html)(_templateObject8()) : (0, _litHtml.html)(_templateObject9(), this.designs.map(design => (0, _litHtml.html)(_templateObject10(), design._id, design.name, design.description, design.price, JSON.stringify(design.user), design.image, design.gender, design.length))));
     (0, _litHtml.render)(template, _App.default.rootEl);
   }
 
@@ -14072,7 +14469,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  const data = _taggedTemplateLiteral(["\n          <p>Updated: ", "</p>\n          <sl-form class=\"page-form\" @sl-submit=", ">\n            <div class=\"input-group\">\n              <sl-input type=\"text\" name=\"firstName\" value=\"", "\" placeholder=\"First Name\"></sl-input>\n            </div>\n            <div class=\"input-group\">\n              <sl-input type=\"text\" name=\"lastName\" value=\"", "\" placeholder=\"Last Name\"></sl-input>\n            </div>\n            <div class=\"input-group\">\n              <sl-input type=\"text\" name=\"email\" value=\"", "\" placeholder=\"Email Address\"></sl-input>\n            </div>     \n            <div class=\"input-group\">\n              <sl-textarea name=\"bio\" rows=\"4\" placeholder=\"Bio\" value=\"", "\"></sl-textarea>\n            </div>       \n            <div class=\"input-group\">\n              <label>Avatar</label><br>          \n              ", "\n            </div>\n            <sl-button type=\"primary\" class=\"submit-btn\" submit>Update Profile</sl-button>\n          </sl-form>\n        "]);
+  const data = _taggedTemplateLiteral(["\n          <p>Your last update was ", "</p>\n          <sl-form class=\"page-form\" @sl-submit=", ">\n            <div class=\"input-group\">\n              <sl-input type=\"text\" name=\"firstName\" value=\"", "\" placeholder=\"First Name\"></sl-input>\n            </div>\n            <div class=\"input-group\">\n              <sl-input type=\"text\" name=\"lastName\" value=\"", "\" placeholder=\"Last Name\"></sl-input>\n            </div>\n            <div class=\"input-group\">\n              <sl-input type=\"text\" name=\"email\" value=\"", "\" placeholder=\"Email Address\"></sl-input>\n            </div>     \n            <div class=\"input-group\">\n              <sl-textarea name=\"bio\" rows=\"9\" placeholder=\"Let everyone know who you are in 200 characters or less.\" maxlength=\"200\" value=\"", "\"></sl-textarea>\n            </div>       \n            <div class=\"input-group\">\n              <label>Avatar</label><br>          \n              ", "\n            </div>\n            <sl-button  type=\"primary\" class=\"submit-btn\" submit>Update Profile</sl-button >\n          </sl-form>\n        "]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -14092,7 +14489,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  const data = _taggedTemplateLiteral(["\n      <va-app-header title=\"Edit Profile\" user=", "></va-app-header>\n      <div class=\"page-content\">        \n        ", "\n      </div>\n    "]);
+  const data = _taggedTemplateLiteral(["\n      <va-app-header title=\"Edit Profile\" user=", "></va-app-header>\n      <div class=\"edit-grid\">\n      <div class=\"page-content-third\">        \n        ", "\n      </div>\n      </div>\n    "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -14180,7 +14577,7 @@ var _Toast = _interopRequireDefault(require("../../Toast"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _templateObject() {
-  const data = _taggedTemplateLiteral(["\n      <va-app-header title=\"Guide\" user=\"", "\"></va-app-header>\n      <div class=\"page-content calign\">        \n      <h3 class=\"brand-color\">Welcome ", "!</h3>\n        <p>This is a quick tour to teach you the basics of using Papermill ...</p>\n\n        <div class=\"guide-step\">\n          <h4>Search for your perfect design</h4>\n          <img src=\"https://plchldr.co/i/500x300?&bg=dddddd&fc=666666&text=IMAGE\">\n        </div>\n\n        <div class=\"guide-step\">\n          <h4>Download design</h4>\n          <img src=\"https://plchldr.co/i/500x300?&bg=dddddd&fc=666666&text=IMAGE\">\n        </div>\n\n        <div class=\"guide-step\">\n          <h4>Add to favourites</h4>\n          <img src=\"https://plchldr.co/i/500x300?&bg=dddddd&fc=666666&text=IMAGE\">\n        </div>\n\n        <sl-button type=\"primary\" @click=", ">Okay got it!</sl-button>\n\n        \n      </div>      \n    "]);
+  const data = _taggedTemplateLiteral(["\n    <va-app-header title=\"Guide\" user=", "></va-app-header>\n    \n    <div class=\"page-content calign\">\n    <div class=\"guide-text-1\"><h3>Welcome, ", "! It looks like you're new, <br>so here's a quick guide to show you what Papermill is all about.</h3></div>\n    <div class=\"guide-text-2\"><h4>(Select the square to continue)</h4></div>\n\n\n\n      <div class=\"home-container-guide calign\">\n    <div class=\"grid-container-home\">\n<div class=\"home-item1 calign\" @click=", "><sl-tooltip  trigger=\"click\" open content=\"Browse an ever-expanding collection of design assets.\" placement=\"top-start\">\n<div class=\"home_image_wrapper\" @click=", ">\n            <img class=\"home_artwork\" src=\"/images/discover_artwork_home.svg\" >\n            </div>\n            <h3 class=\"home_title\">Find a design</h3>\n\n\n      </div>\n  <div class=\"home-item2 calign\" @click=", " ><sl-tooltip trigger=\"click\" open content=\"You can view other users' profiles and design works, too.\" placement=\"top-start\">\n  <div class=\"home_image_wrapper\" >\n            <img class=\"home_artwork\" src=\"/images/designers_artwork_home.svg\" >\n            </div>\n            <h3 class=\"home_title\">Find a designer</h3>\n  </div>\n  <div class=\"home-item3 calign\" @click=", "><sl-tooltip trigger=\"click\" open content=\"You can submit your own artwork easily. We hope to see some from you!\" placement=\"top-start\">\n  <div class=\"home_image_wrapper\">\n            <img class=\"home_artwork\" src=\"/images/add_design_home.svg\">\n            </div>\n            <h3 class=\"home_title\">Add your own design</h3>\n  </div>\n  <div class=\"home-item4 calign\" @click=", "><sl-tooltip  trigger=\"click\" open content=\"Save designs by selecting the heart icon to save them for later viewing.\" placement=\"top-start\">\n  <div class=\"home_image_wrapper\">\n            <img class=\"home_artwork\" src=\"/images/favourites_artwork_final_home.svg\" >\n            </div>\n            <h3 class=\"home_title\">Your favourite designs</h3>\n  </div>\n  <div class=\"home-item5 calign\" @click=", "><sl-tooltip trigger=\"click\" open content=\"Your profile displays all your submitted works as well as contact details.\" placement=\"top-start\">\n  <div class=\"home_image_wrapper\">\n  <img class=\"home_artwork\" src=\"/images/profile_artwork_home.svg\" >\n            </div>\n            <h3 class=\"home_title\">Your profile</h3>\n  </div>\n  <div class=\"home-item6 calign\" @click=", "  ><sl-tooltip  trigger=\"click\" open content=\"One designer is picked to be featured per week, so make sure to get involved!\" placement=\"top-start\">\n  <div class=\"home_image_wrapper\" @click=", ">\n            <img class=\"home_artwork\" src=\"/images/user_spotlight_home.svg\" @click=", ">\n            </div>\n            <h3 class=\"home_title\">Weekly user spotlight</h3>\n  </div>\n\n\n\n    </div>\n    </div> \n    </div> \n    \n    "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -14198,6 +14595,8 @@ class TemplateView {
 
     _Utils.default.pageIntroAnim();
 
+    _Utils.default.guideAnim();
+
     this.updateCurrentUser();
   }
 
@@ -14214,7 +14613,7 @@ class TemplateView {
   }
 
   render() {
-    const template = (0, _litHtml.html)(_templateObject(), JSON.stringify(_Auth.default.currentUser), _Auth.default.currentUser.firstName, () => (0, _Router.gotoRoute)('/'));
+    const template = (0, _litHtml.html)(_templateObject(), JSON.stringify(_Auth.default.currentUser), _Auth.default.currentUser.firstName, () => _Utils.default.guideAnimTwo(), () => _Utils.default.hidePromptAnim(), () => _Utils.default.guideAnimThree(), () => _Utils.default.guideAnimFour(), () => _Utils.default.guideAnimFive(), () => _Utils.default.guideAnimSix(), () => _Utils.default.guideAnimSeven(), () => (0, _Router.gotoRoute)('/'), () => _Toast.default.show("You're all set! Enjoy."));
     (0, _litHtml.render)(template, _App.default.rootEl);
   }
 
@@ -14249,48 +14648,8 @@ var _Toast = _interopRequireDefault(require("../../Toast"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _templateObject8() {
-  const data = _taggedTemplateLiteral(["\n      <p>No bio found.</p>\n      "]);
-
-  _templateObject8 = function _templateObject8() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject7() {
-  const data = _taggedTemplateLiteral(["\n      <h3>Bio</h3>\n      <p>", "</p>\n      "]);
-
-  _templateObject7 = function _templateObject7() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject6() {
-  const data = _taggedTemplateLiteral(["\n            <va-design class=\"design-card\"\n            user=\"", "\"\n            name=\"", " ", "\" \n            image=\"", "\"\n            \n            \n            >\n            </va-design>\n            \n              \n              "]);
-
-  _templateObject6 = function _templateObject6() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject5() {
-  const data = _taggedTemplateLiteral(["\n          ", "\n          "]);
-
-  _templateObject5 = function _templateObject5() {
-    return data;
-  };
-
-  return data;
-}
-
 function _templateObject4() {
-  const data = _taggedTemplateLiteral(["\n            <sl-spinner></sl-spinner>\n          "]);
+  const data = _taggedTemplateLiteral(["\n            <va-profile class=\"design-card\"\n            user=\"", "\"\n            name=\"", " ", "\" \n            image=\"", "\"\n            \n            \n            >\n            </va-profile>\n            \n              \n              "]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -14300,7 +14659,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  const data = _taggedTemplateLiteral(["\n      <sl-avatar style=\"--size: 200px; margin-bottom: 1em;\"></sl-avatar>\n      "]);
+  const data = _taggedTemplateLiteral(["\n          ", "\n          "]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -14310,7 +14669,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  const data = _taggedTemplateLiteral(["\n        <sl-avatar style=\"--size: 200px; margin-bottom: 1em;\" image=", "></sl-avatar>\n      "]);
+  const data = _taggedTemplateLiteral(["\n            <sl-spinner></sl-spinner>\n          "]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -14320,7 +14679,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  const data = _taggedTemplateLiteral(["\n    <va-app-header title=\"Designers\" user=\"", "\"></va-app-header> \n    <div class=\"page-content calign\">        \n      ", "\n      <h2>", " ", "</h2>\n      <p>", "</p>\n\n      \n      <div class=\"designs-container\">\n          ", "\n        </div>\n\n\n      ", "\n\n\n      <sl-button @click=", ">Edit Profile</sl-button>\n    </div>      \n  "]);
+  const data = _taggedTemplateLiteral(["\n    <va-app-header title=\"Designers\" user=\"", "\"></va-app-header> \n    <div class=\"page-content calign\">      \n      \n\n          <main>\n              <div class=\"design-artwork_wrapper\">\n              <img class=\"design_artwork\" id=\"design_artwork\" src=\"/images/designers_artwork.svg\">\n              </div>\n          </main>\n\n      <div class=\"designs-container\">\n      \n\n          ", "\n        </div>\n\n\n\n\n\n    </div>      \n  "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -14339,6 +14698,8 @@ class designersView {
 
     _Utils.default.pageIntroAnim();
 
+    _Utils.default.designProfilesAnim();
+
     await this.getAllUsers();
   }
 
@@ -14353,7 +14714,7 @@ class designersView {
   }
 
   render() {
-    const template = (0, _litHtml.html)(_templateObject(), JSON.stringify(_Auth.default.currentUser), _Auth.default.currentUser && _Auth.default.currentUser.avatar ? (0, _litHtml.html)(_templateObject2(), _Auth.default.currentUser && _Auth.default.currentUser.avatar ? "".concat(_App.default.apiBase, "/images/").concat(_Auth.default.currentUser.avatar) : '') : (0, _litHtml.html)(_templateObject3()), _Auth.default.currentUser.firstName, _Auth.default.currentUser.lastName, _Auth.default.currentUser.email, this.allusers == null ? (0, _litHtml.html)(_templateObject4()) : (0, _litHtml.html)(_templateObject5(), this.allusers.map(user => (0, _litHtml.html)(_templateObject6(), JSON.stringify(user), user.firstName, user.lastName, user.avatar))), _Auth.default.currentUser.bio ? (0, _litHtml.html)(_templateObject7(), _Auth.default.currentUser.bio) : (0, _litHtml.html)(_templateObject8()), () => (0, _Router.gotoRoute)('/editProfile'));
+    const template = (0, _litHtml.html)(_templateObject(), JSON.stringify(_Auth.default.currentUser), this.allusers == null ? (0, _litHtml.html)(_templateObject2()) : (0, _litHtml.html)(_templateObject3(), this.allusers.map(user => (0, _litHtml.html)(_templateObject4(), JSON.stringify(user), user.firstName, user.lastName, user.avatar))));
     (0, _litHtml.render)(template, _App.default.rootEl);
   }
 
@@ -14417,7 +14778,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  const data = _taggedTemplateLiteral(["\n\n      <style>\n        .filter-menu {\n          display: flex;\n          align-items: center;\n        }\n\n        .filter-menu > div {\n          margin-right: 1em;\n        }\n      </style>\n      <va-app-header title=\"Designs\" user=\"", "\"></va-app-header>\n      \n      <div class=\"page-content\">\n\n        <div class=\"design-page-container\">\n          <main>\n              <div class=\"design-artwork_wrapper\">\n              <img class=\"design_artwork\" id=\"design_artwork\" src=\"/images/discover_artwork.svg\">\n              </div>\n          </main>\n\n          </div>\n        <div class=\"filter-menu-wrapper\">\n      <div class=\"filter-menu\">\n      <div>\n      </div>\n        <div class=\"btn-col1\">\n        <sl-button class=\"filter-btn\" pill size=\"medium\" data-field=\"gender\" data-match=\"m\" @click=", ">Textures</sl-button>\n        <sl-button class=\"filter-btn\" pill size=\"medium\" data-field=\"gender\" data-match=\"f\" @click=", ">Patterns</sl-button>\n        <sl-button class=\"filter-btn\" pill size=\"medium\" data-field=\"gender\" data-match=\"u\" @click=", ">Artworks</sl-button>\n        </div>\n\n        <div class=\"btn-col2\">\n        <sl-button class=\"filter-btn\" pill size=\"medium\" data-field=\"length\" data-match=\"s\" @click=", ">Fun</sl-button>\n        <sl-button class=\"filter-btn\" pill size=\"medium\" data-field=\"length\" data-match=\"m\" @click=", ">Classic</sl-button>\n        <sl-button class=\"filter-btn\" pill size=\"medium\" data-field=\"length\" data-match=\"l\" @click=", ">Minimal</sl-button>\n        </div>\n\n        <div class=\"btn-col3\">\n        <sl-button class=\"filter-btn\" pill size=\"medium\" data-field=\"price\" data-match=\"0-0\" @click=", ">Free</sl-button>\n        <sl-button class=\"filter-btn\" pill size=\"medium\" data-field=\"price\" data-match=\"1-30\" @click=", ">$1-30</sl-button>\n        <sl-button class=\"filter-btn\" pill size=\"medium\" data-field=\"price\" data-match=\"30-1000\" @click=", ">$30+</sl-button>\n        </div>\n\n      <div class=\"btn-col4\">\n      <div> \n        <sl-button pill size=\"medium\" @click=", ">Clear filters</sl-button>\n      </div>\n      </div>\n      </div>\n      </div>\n        <div class=\"designs-container\">\n          ", "\n        </div>\n      </div>      \n    "]);
+  const data = _taggedTemplateLiteral(["\n\n      <style>\n        .filter-menu {\n          display: flex;\n          align-items: center;\n        }\n\n        .filter-menu > div {\n          margin-right: 1em;\n        }\n      </style>\n      <va-app-header title=\"Designs\" user=\"", "\"></va-app-header>\n      \n      <div class=\"page-content\">\n\n        <div class=\"design-page-container\">\n          <main>\n              <div class=\"design-artwork_wrapper\">\n              <img class=\"design_artwork\" id=\"design_artwork\" src=\"/images/discover_artwork.svg\">\n              </div>\n          </main>\n\n          </div>\n          <div class=\"search-bar-wrapper\">\n        <sl-input  inputmode=\"search\" size=\"large\" clearable @keyup=", " placeholder=\"Search\"><sl-icon name=\"search\" slot=\"prefix\"></sl-icon></sl-input> \n      </div>\n        <div class=\"filter-menu-wrapper\">\n      <div class=\"filter-menu\">\n      <div>\n      </div>\n        <div class=\"btn-col1\">\n        <sl-button class=\"filter-btn\" pill size=\"medium\" data-field=\"gender\" data-match=\"m\" @click=", ">Textures</sl-button>\n        <sl-button class=\"filter-btn\" pill size=\"medium\" data-field=\"gender\" data-match=\"f\" @click=", ">Patterns</sl-button>\n        <sl-button class=\"filter-btn\" pill size=\"medium\" data-field=\"gender\" data-match=\"u\" @click=", ">Artwork</sl-button>\n        </div>\n\n        <div class=\"btn-col2\">\n        <sl-button class=\"filter-btn\" pill size=\"medium\" data-field=\"length\" data-match=\"s\" @click=", ">Flat</sl-button>\n        <sl-button class=\"filter-btn\" pill size=\"medium\" data-field=\"length\" data-match=\"m\" @click=", ">3D</sl-button>\n \n\n        </div>\n\n        <div class=\"btn-col3\">\n        <sl-button class=\"filter-btn\" pill size=\"medium\" data-field=\"price\" data-match=\"0-0\" @click=", ">Free</sl-button>\n        <sl-button class=\"filter-btn\" pill size=\"medium\" data-field=\"price\" data-match=\"1-50000\" @click=", ">Premium</sl-button>\n        <sl-button class=\"filter-btn\" pill size=\"medium\" data-field=\"name\" data-match=\"pack\" @click=", ">Packs</sl-button>\n        </div>\n\n      <div class=\"btn-col4\">\n      <div> \n        <sl-button pill size=\"medium\" @click=", ">Clear filters</sl-button>\n      </div>\n      </div>\n      </div>\n      </div>\n\n        <div class=\"designs-container\">\n          ", "\n        </div>\n      </div>      \n    "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -14465,6 +14826,12 @@ class designsView {
 
     if (field == 'length') {
       filteredDesigns = this.designs.filter(design => design.length == match);
+    } // name
+
+
+    if (field == 'name') {
+      // filter this.designs design.name contains a searchQuery
+      filteredDesigns = this.designs.filter(design => design.name.toLowerCase().includes(match.toLowerCase()));
     } //render
 
 
@@ -14504,8 +14871,18 @@ class designsView {
     }
   }
 
+  handleSearchKeyUp(e) {
+    // if search query is empty clear filters
+    if (e.target.value == '') {
+      this.getDesigns();
+    } else {
+      // filter designs based on name and search query
+      this.filterDesigns('name', e.target.value);
+    }
+  }
+
   render() {
-    const template = (0, _litHtml.html)(_templateObject(), JSON.stringify(_Auth.default.currentUser), this.handleFilterBtn.bind(this), this.handleFilterBtn.bind(this), this.handleFilterBtn.bind(this), this.handleFilterBtn.bind(this), this.handleFilterBtn.bind(this), this.handleFilterBtn.bind(this), this.handleFilterBtn.bind(this), this.handleFilterBtn.bind(this), this.handleFilterBtn.bind(this), this.clearFilters.bind(this), this.designs == null ? (0, _litHtml.html)(_templateObject2()) : (0, _litHtml.html)(_templateObject3(), this.designs.map(design => (0, _litHtml.html)(_templateObject4(), design._id, design.name, design.description, design.price, JSON.stringify(design.user), design.image, design.gender, design.length))));
+    const template = (0, _litHtml.html)(_templateObject(), JSON.stringify(_Auth.default.currentUser), this.handleSearchKeyUp.bind(this), this.handleFilterBtn.bind(this), this.handleFilterBtn.bind(this), this.handleFilterBtn.bind(this), this.handleFilterBtn.bind(this), this.handleFilterBtn.bind(this), this.handleFilterBtn.bind(this), this.handleFilterBtn.bind(this), this.handleFilterBtn.bind(this), this.clearFilters.bind(this), this.designs == null ? (0, _litHtml.html)(_templateObject2()) : (0, _litHtml.html)(_templateObject3(), this.designs.map(design => (0, _litHtml.html)(_templateObject4(), design._id, design.name, design.description, design.price, JSON.stringify(design.user), design.image, design.gender, design.length))));
     (0, _litHtml.render)(template, _App.default.rootEl);
   }
 
@@ -14541,7 +14918,7 @@ var _DesignAPI = _interopRequireDefault(require("../../DesignAPI"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _templateObject4() {
-  const data = _taggedTemplateLiteral(["\n            <va-design class=\"design-card\"\n              id=\"", "\"\n              name=\"", "\"\n              description=\"", "\"\n              price=\"", "\"\n              user=\"", "\"\n              image=\"", "\"\n              gender=\"", "\"\n              length=\"", "\"\n            >        \n            </va-design>\n        \n          "]);
+  const data = _taggedTemplateLiteral(["\n            <va-design-favourite class=\"design-card\"\n              id=\"", "\"\n              name=\"", "\"\n              description=\"", "\"\n              price=\"", "\"\n              user=\"", "\"\n              image=\"", "\"\n              gender=\"", "\"\n              length=\"", "\"\n            >        \n            </va-design-favourite>\n        \n          "]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -14571,7 +14948,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  const data = _taggedTemplateLiteral(["\n      <va-app-header title=\"Favourite Designs\" user=\"", "\"></va-app-header>\n      <div id=\"footer-container\">\n      <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"footerWave\" viewBox=\"0 0 1440 320\">\n  <path fill=\"#6fa5e2\" fill-opacity=\"1\" d=\"M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z\"></path>\n</svg>\n    </div>\n      <div class=\"page-content\"> \n\n\n\n\n      <div class=\"design-page-container\">\n          <main>\n              <div class=\"design-artwork_wrapper\">\n              <img class=\"design_artwork\" id=\"favourite_artwork\" src=\"/images/favourites_artwork.svg\">\n              </div>\n          </main>\n\n          </div>\n\n              \n        <div class=\"designs-container\">\n        ", "\n        </div>\n\n\n \n    "]);
+  const data = _taggedTemplateLiteral(["\n      <va-app-header title=\"Favourite Designs\" user=\"", "\"></va-app-header>\n      <div id=\"footer-container\">\n\n    </div>\n      <div class=\"page-content\"> \n\n\n\n\n      <div class=\"design-page-container\">\n          <main>\n              <div class=\"design-artwork_wrapper\">\n              <img class=\"design_artwork\" id=\"favourite_artwork\" src=\"/images/favourites_artwork_final.svg\">\n              </div>\n          </main>\n\n          </div>\n\n              \n        <div class=\"designs-container\">\n        ", "\n        </div>\n\n \n    "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -14594,7 +14971,7 @@ class favouriteDesigns {
 
     await this.getFavDesigns();
 
-    _Utils.default.designContainerAnim();
+    _Utils.default.designProfilesAnim();
   }
 
   async getFavDesigns() {
@@ -14643,7 +15020,7 @@ var _Toast = _interopRequireDefault(require("../../Toast"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _templateObject() {
-  const data = _taggedTemplateLiteral(["\n      <va-app-header title=\"New Design\" user=\"", "\"></va-app-header>\n      <div class=\"page-content\">\n        <div class=\"vhCap\">  \n        <div class=\"grid\">\n        <article>\n        <div class=\"signinup-box-2\">\n        <sl-form class=\"form-signup\" @sl-submit=", ">\n          <input type=\"hidden\" name=\"user\" value=\"", "\" />\n          <div class=\"input-group\">\n            <sl-input name=\"name\" type=\"text\" placeholder=\"Design Name\" required></sl-input>\n          </div>\n          <div class=\"input-group\">              \n            <sl-input name=\"price\" type=\"text\" placeholder=\"Price\" required>\n              <span slot=\"prefix\">$</span>\n            </sl-input>\n          </div>\n          <div class=\"input-group\">\n            <sl-textarea name=\"description\" id=\"descriptionWindow\" rows=\"3\" placeholder=\"Description\"></sl-textarea>\n          </div>\n          <div class=\"input-group\" id=\"imageInput\" style=\"margin-bottom: 2em;\">\n            <label>Image</label><br>\n            <input type=\"file\" name=\"image\" />              \n          </div>\n          <div class=\"input-group\" style=\"margin-bottom: 2em;\">\n            <label>What is it?</label><br>\n            <sl-radio-group label=\"Select gender\" no-fieldset>\n              <sl-radio name=\"gender\" value=\"m\">A texture</sl-radio>\n              <sl-radio name=\"gender\" value=\"f\">A pattern</sl-radio>\n              <sl-radio name=\"gender\" value=\"u\">An artwork</sl-radio>\n            </sl-radio-group>\n          </div>\n          <div class=\"input-group\" style=\"margin-bottom: 2em;\">\n            <label>How would you describe the design?</label><br>\n            <sl-radio-group label=\"Select length\" no-fieldset>\n              <sl-radio name=\"length\" value=\"s\">Fun</sl-radio>\n              <sl-radio name=\"length\" value=\"m\">Classic</sl-radio>\n              <sl-radio name=\"length\" value=\"l\">Minimal</sl-radio>\n            </sl-radio-group>\n          </div>\n          <sl-button type=\"primary\" class=\"submit-btn\" submit>Add Design</sl-button>\n        </sl-form>  \n        </div>\n        \n        </article>\n        <div class=\"newdesign-artwork\">\n          <div class=\"artwork-newdesign\">\n              <img id=\"newdesign_artwork\" src=\"/images/newdesign_artwork2.svg\">\n          </div> \n        </div>\n        </div>\n\n\n        </div>\n\n      </div>   \n      \n      </div> \n             \n    "]);
+  const data = _taggedTemplateLiteral(["\n      <va-app-header title=\"New Design\" user=\"", "\"></va-app-header>\n      <div class=\"page-content-secondary\">\n        <div class=\"vhCap\">  \n        <div class=\"grid\">\n        <article>\n        <div class=\"signinup-box-2\">\n        <sl-form class=\"form-signup\" @sl-submit=", ">\n          <input type=\"hidden\" name=\"user\" value=\"", "\" />\n          <div class=\"input-group\">\n            <sl-input name=\"name\" maxlength=\"20\" type=\"text\" placeholder=\"Design Name\" required></sl-input>\n          </div>\n          <div class=\"input-group\">              \n            <sl-input name=\"price\" type=\"text\" maxlength=\"3\" placeholder=\"Price\" required>\n              <span slot=\"prefix\">$</span>\n            </sl-input>\n          </div>\n          <div class=\"input-group\">\n            <sl-textarea name=\"description\" id=\"descriptionWindow\" rows=\"6\" maxlength=\"150\" placeholder=\"Describe your work\"></sl-textarea>\n          </div>\n          <div class=\"input-group\" id=\"imageInput\" style=\"margin-bottom: 2em;\">\n            <label>Image</label><br>\n            <input type=\"file\" name=\"image\" />              \n          </div>\n          <div class=\"input-group\" style=\"margin-bottom: 2em;\">\n            <label>What is it?</label><br>\n            <sl-radio-group label=\"Select gender\" no-fieldset>\n              <sl-radio name=\"gender\" value=\"m\">A texture</sl-radio>\n              <sl-radio name=\"gender\" value=\"f\">A pattern</sl-radio>\n              <sl-radio name=\"gender\" value=\"u\">An artwork</sl-radio>\n            </sl-radio-group>\n          </div>\n          <div class=\"input-group\" style=\"margin-bottom: 2em;\">\n            <label>What sort of design is it?</label><br>\n            <sl-radio-group label=\"Select length\" no-fieldset>\n              <sl-radio name=\"length\" value=\"s\">Flat</sl-radio>\n              <sl-radio name=\"length\" value=\"m\">3D</sl-radio>\n              <sl-radio name=\"length\" value=\"l\">Realistic</sl-radio>\n            </sl-radio-group>\n          </div>\n          <sl-button type=\"primary\" class=\"submit-btn\" submit><sl-icon name=\"plus-square\"></sl-icon> Add Design</sl-button>\n        </sl-form>  \n        </div>\n        \n        </article>\n        <div class=\"newdesign-artwork\">\n          <div class=\"artwork-newdesign\">\n              <img id=\"newdesign_artwork\" src=\"/images/newdesign_artwork2.svg\">\n          </div> \n        </div>\n        </div>\n\n\n        </div>\n\n      </div>   \n      \n      </div> \n             \n    "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -14772,7 +15149,7 @@ function _templateObject7() {
 }
 
 function _templateObject6() {
-  const data = _taggedTemplateLiteral(["\n        <h3>Bio</h3>\n        <p>", "</p>\n        "]);
+  const data = _taggedTemplateLiteral(["\n   \n        <p>", "</p>\n        "]);
 
   _templateObject6 = function _templateObject6() {
     return data;
@@ -14782,7 +15159,7 @@ function _templateObject6() {
 }
 
 function _templateObject5() {
-  const data = _taggedTemplateLiteral(["\n        <sl-avatar style=\"--size: 200px; margin-bottom: 1em;\"></sl-avatar>\n        "]);
+  const data = _taggedTemplateLiteral(["\n        <sl-avatar style=\"--size: 150px; margin-bottom: 1em;\"></sl-avatar>\n        "]);
 
   _templateObject5 = function _templateObject5() {
     return data;
@@ -14792,7 +15169,7 @@ function _templateObject5() {
 }
 
 function _templateObject4() {
-  const data = _taggedTemplateLiteral(["\n          <sl-avatar style=\"--size: 200px; margin-bottom: 1em;\" image=", "></sl-avatar>\n        "]);
+  const data = _taggedTemplateLiteral(["\n          <sl-avatar shape=\"rounded\" style=\"--size: 250px; margin-bottom: 1em;\" image=", "></sl-avatar>\n        "]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -14802,7 +15179,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  const data = _taggedTemplateLiteral(["\n\n        ", "\n        <h2>", " ", "</h2>\n        <p>Contact me at ", "</p>\n        \n        <p>Last update was ", "</p>\n\n        ", "\n      \n      "]);
+  const data = _taggedTemplateLiteral(["\n      <div class=\"profile-item1\">\n        \n        ", "\n        <h2>", " ", "</h2>\n                <p> \u2709 ", "</p>\n        </div>\n        <div class=\"profile-item2\">\n\n        </div>\n        <div class=\"profile-item3\">\n      \n        </div>\n\n        <div class=\"profile-item4\">\n        ", "\n        </div>\n      "]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -14822,7 +15199,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  const data = _taggedTemplateLiteral(["\n      <va-app-header title=\"Profile\" user=\"", "\"></va-app-header>\n      <div class=\"page-content\">\n        <div class=\"profile-centre\">\n      ", "  \n      </div>\n    \n      <div class=\"designs-container\">\n          ", "\n        </div>\n      </div>      \n      </div>  \n        \n  \n        \n      </div>      \n    "]);
+  const data = _taggedTemplateLiteral(["\n      <va-app-header title=\"Profile\" user=\"", "\"></va-app-header>\n      <div class=\"page-content\">\n        <div class=\"profile-centre\">\n          <div class=\"profile-grid\">\n      ", "  \n      </div>\n      </div>\n      <div class=\"profile-title calign\"><h2>", "'s shared designs</h2><sl-icon name=\"arrow-down-square\" style=\"font-size: 32px;\"></sl-icon></div>\n    \n      <div class=\"designs-container-profile\">\n        \n          ", "\n        </div>\n      </div>      \n      </div>  \n        \n  \n        \n      </div>    \n      <div class=\"wrap\">\n\n      <svg class=\"svg3\" viewBox=\"0 0 500 500\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"15%\" id=\"blobSvg\">\n  <defs>\n    <linearGradient id=\"gradient\" x1=\"0%\" y1=\"0%\" x2=\"0%\" y2=\"100%\">\n      <stop offset=\"0%\" style=\"stop-color: rgb(238, 205, 163);\"></stop>\n      <stop offset=\"100%\" style=\"stop-color: #d6af87;\"></stop>\n    </linearGradient>\n  </defs>\n  <path id=\"blob\" d=\"M317.5,337Q150,424,171,286.5Q192,149,338.5,199.5Q485,250,317.5,337Z\" fill=\"url(#gradient)\"></path>\n</svg>\n\n<svg class=\"svg3\" viewBox=\"0 0 500 500\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"15%\" id=\"blobSvg\">\n  <defs>\n    <linearGradient id=\"gradient\" x1=\"0%\" y1=\"0%\" x2=\"0%\" y2=\"100%\">\n      <stop offset=\"0%\" style=\"stop-color: rgb(238, 205, 163);\"></stop>\n      <stop offset=\"100%\" style=\"stop-color: rgb(239, 98, 159);\"></stop>\n    </linearGradient>\n  </defs>\n  <path id=\"blob\" d=\"M409.5,310.5Q439,371,372.5,372Q306,373,263.5,412Q221,451,171.5,424.5Q122,398,121,343Q120,288,106,246Q92,204,94,138Q96,72,163,91Q230,110,273,108Q316,106,359.5,129Q403,152,391.5,201Q380,250,409.5,310.5Z\" fill=\"url(#gradient)\"></path>\n</svg>\n\n<svg class=\"svg3\" viewBox=\"0 0 500 500\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"15%\" id=\"blobSvg\">\n  <defs>\n    <linearGradient id=\"gradient\" x1=\"0%\" y1=\"0%\" x2=\"0%\" y2=\"100%\">\n      <stop offset=\"0%\" style=\"stop-color: rgb(238, 205, 163);\"></stop>\n      <stop offset=\"100%\" style=\"stop-color: rgb(239, 98, 159);\"></stop>\n    </linearGradient>\n  </defs>\n  <path id=\"blob\" d=\"M355.5,345.5Q312,441,192,410Q72,379,68.5,247Q65,115,179.5,114Q294,113,346.5,181.5Q399,250,355.5,345.5Z\" fill=\"url(#gradient)\"></path>\n</svg>\n\n\n<svg class=\"svg3\" viewBox=\"0 0 500 500\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"20%\" id=\"blobSvg\">\n  <defs>\n    <linearGradient id=\"gradient\" x1=\"0%\" y1=\"0%\" x2=\"0%\" y2=\"100%\">\n      <stop offset=\"0%\" style=\"stop-color: rgb(238, 205, 163);\"></stop>\n      <stop offset=\"100%\" style=\"stop-color: rgb(239, 98, 159);\"></stop>\n    </linearGradient>\n  </defs>\n  <path id=\"blob\" d=\"M355.5,345.5Q312,441,192,410Q72,379,68.5,247Q65,115,179.5,114Q294,113,346.5,181.5Q399,250,355.5,345.5Z\" fill=\"url(#gradient)\"></path>\n</svg>\n\n\n\n\n\n<svg class=\"svg3\" viewBox=\"0 0 500 500\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"20%\" id=\"blobSvg\">\n  <defs>\n    <linearGradient id=\"gradient\" x1=\"0%\" y1=\"0%\" x2=\"0%\" y2=\"100%\">\n      <stop offset=\"0%\" style=\"stop-color: rgb(238, 205, 163);\"></stop>\n      <stop offset=\"100%\" style=\"stop-color: rgb(239, 98, 159);\"></stop>\n    </linearGradient>\n  </defs>\n  <path id=\"blob\" d=\"M424.5,338.5Q352,427,254.5,418.5Q157,410,94.5,330Q32,250,95,170.5Q158,91,257.5,78Q357,65,427,157.5Q497,250,424.5,338.5Z\" fill=\"url(#gradient)\"></path>\n</svg>\n\n\n\n\n</div>  \n    "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -14842,8 +15219,6 @@ class specificProfileView {
     await this.getUser();
     await this.filterDesigns('published', this.userId);
     this.render();
-
-    _Utils.default.pageIntroAnim();
   }
 
   async getUser() {
@@ -14877,7 +15252,7 @@ class specificProfileView {
   }
 
   render() {
-    const template = (0, _litHtml.html)(_templateObject(), JSON.stringify(_Auth.default.currentUser), this.user == null ? (0, _litHtml.html)(_templateObject2()) : (0, _litHtml.html)(_templateObject3(), this.user && this.user.avatar ? (0, _litHtml.html)(_templateObject4(), this.user && this.user.avatar ? "".concat(_App.default.apiBase, "/images/").concat(this.user.avatar) : '') : (0, _litHtml.html)(_templateObject5()), this.user.firstName, this.user.lastName, this.user.email, (0, _moment.default)(this.user.updatedAt).format('MMMM Do YYYY, @ h:mm a'), this.user.bio ? (0, _litHtml.html)(_templateObject6(), this.user.bio) : (0, _litHtml.html)(_templateObject7())), this.designs == null ? (0, _litHtml.html)(_templateObject8()) : (0, _litHtml.html)(_templateObject9(), this.designs.map(design => (0, _litHtml.html)(_templateObject10(), design._id, design.name, design.description, design.price, JSON.stringify(design.user), design.image, design.gender, design.length))));
+    const template = (0, _litHtml.html)(_templateObject(), JSON.stringify(_Auth.default.currentUser), this.user == null ? (0, _litHtml.html)(_templateObject2()) : (0, _litHtml.html)(_templateObject3(), this.user && this.user.avatar ? (0, _litHtml.html)(_templateObject4(), this.user && this.user.avatar ? "".concat(_App.default.apiBase, "/images/").concat(this.user.avatar) : '') : (0, _litHtml.html)(_templateObject5()), this.user.firstName, this.user.lastName, this.user.email, this.user.bio ? (0, _litHtml.html)(_templateObject6(), this.user.bio) : (0, _litHtml.html)(_templateObject7())), this.user.firstName, this.designs == null ? (0, _litHtml.html)(_templateObject8()) : (0, _litHtml.html)(_templateObject9(), this.designs.map(design => (0, _litHtml.html)(_templateObject10(), design._id, design.name, design.description, design.price, JSON.stringify(design.user), design.image, design.gender, design.length))));
     (0, _litHtml.render)(template, _App.default.rootEl);
   }
 
@@ -16795,26 +17170,6 @@ var _App = _interopRequireDefault(require("./../App"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _templateObject4() {
-  const data = _taggedTemplateLiteral(["\n        <a href=\"/newDesign\" @click=\"", "\"><sl-icon name=\"plus-square\" class=\"icon-styling\" style=\"font-size: 0.8em;\"></sl-icon>  Add a design</a>  \n        "]);
-
-  _templateObject4 = function _templateObject4() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject3() {
-  const data = _taggedTemplateLiteral(["\n        <a href=\"/newDesign\" @click=\"", "\">Add design</a>  \n        "]);
-
-  _templateObject3 = function _templateObject3() {
-    return data;
-  };
-
-  return data;
-}
-
 function _templateObject2() {
   const data = _taggedTemplateLiteral(["\n          <h1 class=\"page-title\">", "</h1>\n        "]);
 
@@ -16826,7 +17181,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  const data = _taggedTemplateLiteral(["\n    <style>      \n      * {\n        box-sizing: border-box;\n      }\n      .app-header {\n        background: var(--brand-color);\n        position: fixed;\n        top: 0;\n        right: 0;\n        left: 0;\n        height: var(--app-header-height);\n        color: #fff;\n        display: flex;\n        z-index: 9;\n        box-shadow: 4px 0px 10px rgba(0,0,0,0.2);\n        align-items: center;\n      }\n      \n\n      .app-header-main {\n        flex-grow: 1;\n        display: flex;\n        align-items: center;\n      }\n\n      .app-header-main::slotted(h1){\n        color: #fff;\n      }\n\n      .app-logo a {\n        color: #fff;\n        text-decoration: none;\n        font-weight: bold;\n        font-size: 1.2em;\n        padding: .6em;\n        display: inline-block;        \n      }\n\n      .app-logo img {\n        width: 90px;\n      }\n      \n      .hamburger-btn::part(base) {\n        color: #fff;\n      }\n\n      .app-top-nav {\n        display: flex;\n        height: 100%;\n        align-items: center;\n      }\n\n      .app-top-nav a {\n        display: inline-block;\n        padding: .8em;\n        text-decoration: none;\n        color: #fff;\n      }\n      \n      .app-side-menu-items a {\n        display: block;\n        padding: .5em;\n        text-decoration: none;\n        font-size: 1.3em;\n        color: #333;\n      }\n\n      .app-side-menu-logo {\n        width: 120px;\n        margin-bottom: 1em;\n        position: absolute;\n        top: 2em;\n        left: 1.5em;\n      }\n\n      .page-title {\n        color: var(--app-header-txt-color);\n        margin-right: 0.5em;\n        font-size: var(--app-header-title-font-size);\n      }\n\n      /* active nav links */\n      .app-top-nav a.active,\n      .app-side-menu-items a.active {\n        font-weight: 600;\n      }\n\n      /* RESPONSIVE - MOBILE ------------------- */\n      @media all and (max-width: 768px){       \n        \n        .app-top-nav {\n          display: none;\n        }\n      }\n\n    </style>\n\n    <header class=\"app-header\">\n      <sl-icon-button class=\"hamburger-btn\" name=\"list\" @click=\"", "\" style=\"font-size: 1.5em;\"></sl-icon-button>       \n      \n      <div class=\"app-header-main\">\n        ", "\n        <slot></slot>\n      </div>\n\n      <nav class=\"app-top-nav\">\n        <a href=\"/\" @click=\"", "\">Home</a>  \n        ", "          \n        <sl-dropdown>\n          <a slot=\"trigger\" href=\"#\" @click=\"", "\">\n            <sl-avatar style=\"--size: 24px;\" image=", "></sl-avatar> ", "\n          </a>\n          <sl-menu>            \n            <sl-menu-item @click=\"", "\">Profile</sl-menu-item>\n            <sl-menu-item @click=\"", "\">Edit Profile</sl-menu-item>\n            <sl-menu-item @click=\"", "\">Sign Out</sl-menu-item>\n          </sl-menu>\n        </sl-dropdown>\n      </nav>\n    </header>\n\n    <sl-drawer class=\"app-side-menu\" placement=\"left\">\n      <img class=\"app-side-menu-logo\" src=\"/images/logo.svg\">\n      <nav class=\"app-side-menu-items\">\n        <a href=\"/\" @click=\"", "\"> <sl-icon name=\"house\" class=\"icon-styling\" style=\"font-size: 0.8em;\"></sl-icon></sl-icon> Home</a>\n        <a href=\"/designs\" @click=\"", "\"><sl-icon name=\"stickies\" class=\"icon-styling\" style=\"font-size: 0.8em;\"></sl-icon>  Find a design</a>\n        ", "   \n\n\n        <a href=\"/favouriteDesigns\" @click=\"", "\"><sl-icon name=\"suit-heart\" class=\"icon-styling\" style=\"font-size: 0.8em;\"></sl-icon></sl-icon> Favourite designs</a>\n        <a href=\"/designers\" @click=\"", "\"> <sl-icon name=\"people\" class=\"icon-styling\" style=\"font-size: 0.8em;\"></sl-icon></sl-icon> Find a designer</a>\n        <a href=\"/profile\" @click=\"", "\"> <sl-icon name=\"person\" class=\"icon-styling\" style=\"font-size: 0.8em;\"></sl-icon></sl-icon> Profile</a>\n        <a href=\"#\" @click=\"", "\"> <sl-icon name=\"box-arrow-in-left\" class=\"icon-styling\" style=\"font-size: 0.8em;\"></sl-icon></sl-icon> Sign Out</a>\n      </nav>  \n    </sl-drawer>\n    "]);
+  const data = _taggedTemplateLiteral(["\n    <style>      \n      * {\n        box-sizing: border-box;\n      }\n      .app-header {\n        background: var(--brand-color);\n        position: fixed;\n        top: 0;\n        right: 0;\n        left: 0;\n        height: var(--app-header-height);\n        color: #fff;\n        display: flex;\n        z-index: 9;\n        box-shadow: 4px 0px 10px rgba(0,0,0,0.2);\n        align-items: center;\n      }\n      \n\n      .app-header-main {\n        flex-grow: 1;\n        display: flex;\n        align-items: center;\n      }\n\n      .app-header-main::slotted(h1){\n        color: #fff;\n      }\n\n      .app-logo a {\n        color: #fff;\n        text-decoration: none;\n        font-weight: bold;\n        font-size: 1.2em;\n        padding: .6em;\n        display: inline-block;        \n      }\n\n      .app-logo img {\n        width: 90px;\n      }\n      \n      .hamburger-btn::part(base) {\n        color: #fff;\n      }\n\n      .app-top-nav {\n        display: flex;\n        height: 100%;\n        align-items: center;\n      }\n\n      .app-top-nav a {\n        display: inline-block;\n        padding: .8em;\n        text-decoration: none;\n        color: #fff;\n      }\n      \n      .app-side-menu-items a {\n        display: block;\n        padding: .5em;\n        text-decoration: none;\n        font-size: 1.3em;\n        color: #333;\n      }\n\n      .app-side-menu-logo {\n        width: 200px;\n        margin-bottom: 1em;\n        position: absolute;\n        top: 2em;\n        left: 0.1em;\n      }\n\n      .page-title {\n        color: var(--app-header-txt-color);\n        margin-right: 0.5em;\n        font-size: var(--app-header-title-font-size);\n      }\n\n      /* active nav links */\n      .app-top-nav a.active,\n      .app-side-menu-items a.active {\n        font-weight: 600;\n      }\n\n      /* RESPONSIVE - MOBILE ------------------- */\n      @media all and (max-width: 768px){       \n        \n        .app-top-nav {\n          display: none;\n        }\n      }\n\n    </style>\n\n    <header class=\"app-header\">\n      <sl-icon-button class=\"hamburger-btn\" name=\"list\" @click=\"", "\" style=\"font-size: 1.5em;\"></sl-icon-button>       \n      \n      <div class=\"app-header-main\">\n        ", "\n        <slot></slot>\n      </div>\n\n      <nav class=\"app-top-nav\">\n        <a href=\"/\" @click=\"", "\">Home</a>  \n     \n        <sl-dropdown>\n          <a slot=\"trigger\" href=\"#\" @click=\"", "\">\n            <sl-avatar style=\"--size: 24px;\" image=", "></sl-avatar> ", "\n          </a>\n          <sl-menu>            \n            <sl-menu-item @click=\"", "\">Profile</sl-menu-item>\n            <sl-menu-item @click=\"", "\">Edit Profile</sl-menu-item>\n            <sl-menu-item @click=\"", "\">Sign Out</sl-menu-item>\n          </sl-menu>\n        </sl-dropdown>\n      </nav>\n    </header>\n\n    <sl-drawer class=\"app-side-menu\" placement=\"left\">\n      <img class=\"app-side-menu-logo\" src=\"/images/logo.svg\">\n      <nav class=\"app-side-menu-items\">\n        <a href=\"/\" @click=\"", "\"> <sl-icon name=\"house\" class=\"icon-styling\" style=\"font-size: 0.8em;\"></sl-icon></sl-icon> Home</a>\n        <a href=\"/designs\" @click=\"", "\"><sl-icon name=\"stickies\" class=\"icon-styling\" style=\"font-size: 0.8em;\"></sl-icon>  Find a design</a>\n\n        <a href=\"/newDesign\" @click=\"", "\"><sl-icon name=\"plus-square\" class=\"icon-styling\" style=\"font-size: 0.8em;\"></sl-icon>  Add a design</a>  \n\n\n\n        <a href=\"/favouriteDesigns\" @click=\"", "\"><sl-icon name=\"suit-heart\" class=\"icon-styling\" style=\"font-size: 0.8em;\"></sl-icon></sl-icon> Favourite designs</a>\n        <a href=\"/designers\" @click=\"", "\"> <sl-icon name=\"people\" class=\"icon-styling\" style=\"font-size: 0.8em;\"></sl-icon></sl-icon> Find a designer</a>\n        <a href=\"/profile\" @click=\"", "\"> <sl-icon name=\"person\" class=\"icon-styling\" style=\"font-size: 0.8em;\"></sl-icon></sl-icon> Profile</a>\n        <a href=\"#\" @click=\"", "\"> <sl-icon name=\"box-arrow-in-left\" class=\"icon-styling\" style=\"font-size: 0.8em;\"></sl-icon></sl-icon> Sign Out</a>\n      </nav>  \n    </sl-drawer>\n    "]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -16888,7 +17243,7 @@ customElements.define('va-app-header', class AppHeader extends _litElement.LitEl
   }
 
   render() {
-    return (0, _litElement.html)(_templateObject(), this.hamburgerClick, this.title ? (0, _litElement.html)(_templateObject2(), this.title) : "", _Router.anchorRoute, this.user.accessLevel == 2 ? (0, _litElement.html)(_templateObject3(), _Router.anchorRoute) : "", e => e.preventDefault(), this.user && this.user.avatar ? "".concat(_App.default.apiBase, "/images/").concat(this.user.avatar) : '', this.user && this.user.firstName, () => (0, _Router.gotoRoute)('/profile'), () => (0, _Router.gotoRoute)('/editProfile'), () => _Auth.default.signOut(), this.menuClick, this.menuClick, this.user.accessLevel == 2 ? (0, _litElement.html)(_templateObject4(), this.menuClick) : "", this.menuClick, this.menuClick, this.menuClick, () => _Auth.default.signOut());
+    return (0, _litElement.html)(_templateObject(), this.hamburgerClick, this.title ? (0, _litElement.html)(_templateObject2(), this.title) : "", _Router.anchorRoute, e => e.preventDefault(), this.user && this.user.avatar ? "".concat(_App.default.apiBase, "/images/").concat(this.user.avatar) : '', this.user && this.user.firstName, () => (0, _Router.gotoRoute)('/profile'), () => (0, _Router.gotoRoute)('/editProfile'), () => _Auth.default.signOut(), this.menuClick, this.menuClick, this.menuClick, this.menuClick, this.menuClick, this.menuClick, () => _Auth.default.signOut());
   }
 
 });
@@ -16912,7 +17267,128 @@ var _Toast = _interopRequireDefault(require("../Toast"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _templateObject2() {
-  const data = _taggedTemplateLiteral(["\n    <style>\n      .author {\n        font-size: 0.9em;\n        font-style: italic;\n        opacity: 0.8;\n        cursor: pointer;\n      }\n      .moreInfoText{\n        position: absolute;\n        top: 120px;\n        left: 34%;\n        display: flex;\n        justify-items: center;\n        user-select: none;\n        cursor: pointer;\n        opacity: 0;\n        color: white;\n        pointer-events: none;\n      }\n\n\n      .design-image{\n        height: 300px;\n        width: 300px;\n        max-height: 100%;\n        max-width: 100%;\n        overflow: hidden;\n        justify-items: center;\n        display: grid;\n        justify-content: center;\n        \n      }\n\n      img.design-image{\n      cursor: pointer;\n      transform: scale(0.9);\n      }\n      img.design-image:hover {\n      cursor: pointer;\n      filter: blur(2px);\n      filter: brightness(1.1);\n      transform: scale(2);\n      transition: transform 0.1s ease-in-out;\n      }\n\n\n\n   \n\n      \n      @media all and (max-width: 768px){ \n    .designs-container{\n\n    display: grid;\n    grid-template-columns: repeat(auto-fit, minmax(160px, 200px));\n    grid-auto-rows: repeat(auto-fit, minmax(auto, auto));\n    grid-gap: 1em;\n    padding: 3em;\n    justify-items: center;\n    justify-content: center;\n    }\n    .design-image{\n      height: 200px;\n      width: 100%;\n    }\n    h2{\n      font-size:1.1rem;\n    }\n\n\n\n    \n  }\n\n    </style>\n\n    <sl-card>\n \n\n\n      <img @click=", " class=\"design-image\" slot=\"image\" src=\"", "/images/", "\" alt=\"", "\" />\n      <div class=\"moreInfoText\"><h3>More Info</h3></div>\n      <h2>", "</h2>\n      <h3>$", "</h3>\n      <a @click=", "><p class=\"author\">By ", " ", "</p></a>\n      <sl-button @click=", ">More info</sl-button>\n      <sl-icon-button name=\"heart-fill\" label=\"Add to favourites\" @click=", "></sl-icon-button>\n    </sl-card>\n    "]);
+  const data = _taggedTemplateLiteral(["\n    <style>\n      .author {\n        font-size: 0.9em;\n        font-style: italic;\n        opacity: 0.8;\n        cursor: pointer;\n      }\n      .moreInfoText{\n        position: absolute;\n        top: 120px;\n        left: 34%;\n        display: flex;\n        justify-items: center;\n        user-select: none;\n        cursor: pointer;\n        opacity: 0;\n        color: white;\n        pointer-events: none;\n      }\n\n\n      .design-image{\n        height: 300px;\n        width: 300px;\n        max-height: 100%;\n        max-width: 100%;\n        overflow: hidden;\n        justify-items: center;\n        display: grid;\n        justify-content: center;\n        \n        \n      }\n\n      img.design-image{\n      cursor: pointer;\n      transform: scale(0.9);\n      }\n      img.design-image:hover {\n      cursor: pointer;\n      filter: blur(2px);\n      filter: brightness(1.1);\n      transform: scale(2);\n      transition: transform 0.1s ease-in-out;\n      }\n\n\n\n   \n\n      \n      @media all and (max-width: 768px){ \n    .designs-container{\n\n    display: grid;\n    grid-template-columns: repeat(auto-fit, minmax(160px, 200px));\n    grid-auto-rows: repeat(auto-fit, minmax(auto, auto));\n    grid-gap: 1em;\n    padding: 3em;\n    justify-items: center;\n    justify-content: center;\n    }\n    .design-image{\n      height: 200px;\n      width: 100%;\n    }\n    h2{\n      font-size:1.1rem;\n    }\n\n\n\n    \n  }\n\n    </style>\n\n    <sl-card>\n \n\n\n      <img @click=", " class=\"design-image\" slot=\"image\" src=\"", "/images/", "\" alt=\"", "\" />\n      <div class=\"moreInfoText\"><h3>More Info</h3></div>\n      <h2>", "</h2>\n      <h3>$", "</h3>\n      <a @click=", "><p class=\"author\">By ", " ", "</p></a>\n      <sl-button @click=", ">More info</sl-button>\n      <sl-icon-button name=\"heart-fill\" label=\"Add to favourites\" @click=", "></sl-icon-button>\n    </sl-card>\n    "]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  const data = _taggedTemplateLiteral(["\n          <style>\n        .wrap {\n          display: flex;\n        }\n        .image {\n          width: 50%;\n        }\n        .image img {\n          width: 80%;\n          box-shadow: 5px 5px 5px rgba(170, 170, 170, 0.2);\n          border-radius: 25px;\n        }\n        .content {\n          padding-left: 1em;\n        }\n        .gender span,\n        .length span {\n          text-transform: uppercase;\n          font-weight: bold;\n        }\n        .price{\n          font-size: 1.5em;\n          color: var(--brand-color)\n        }\n      </style>\n      <div class=\"wrap\">\n        <div class=\"image\">\n          <img src=\"", "/images/", "\" alt=\"", "\" />\n          \n        </div>\n        <div class=\"content\">\n          <h1>", "</h1>\n          <p>", "</p>\n          <p class=\"price\">$", "</p>\n\n\n          <sl-button @click=", ">\n            <sl-icon slot=\"prefix\" name=\"heart-fill\"></sl-icon>\n            Add to Favourites\n          </sl-button>\n          <sl-button @click=", ">\n            <sl-icon slot=\"prefix\" name=\"save\"></sl-icon>\n            Download\n            <a href=\"", "/images/", "\" download=\"", "\"></a>\n          </sl-button>\n          <sl-button @click=", "><sl-icon slot=\"prefix\" name=\"person\"></sl-icon>Visit author</sl-button>\n        </div>\n      </div>\n    "]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+customElements.define('va-design', class Design extends _litElement.LitElement {
+  constructor() {
+    super();
+  }
+
+  static get properties() {
+    return {
+      id: {
+        type: String
+      },
+      name: {
+        type: String
+      },
+      description: {
+        type: String
+      },
+      price: {
+        type: String
+      },
+      user: {
+        type: Object
+      },
+      image: {
+        type: String
+      },
+      gender: {
+        type: String
+      },
+      length: {
+        type: String
+      }
+    };
+  }
+
+  firstUpdated() {
+    super.firstUpdated();
+  }
+
+  moreInfoHandler() {
+    // create sl-dialog
+    const dialogEl = document.createElement('sl-dialog'); // add className
+
+    dialogEl.className = 'design-dialog'; // sl-dialog content
+
+    const dialogContent = (0, _litElement.html)(_templateObject(), _App.default.apiBase, this.image, this.name, this.name, this.description, this.price, this.addFavHandler.bind(this), this.downloadHandler.bind(this), _App.default.apiBase, this.image, this.name, () => (0, _Router.gotoRoute)("/public?id=".concat(this.user._id)));
+    (0, _litHtml.render)(dialogContent, dialogEl); // append to document.body
+
+    document.body.append(dialogEl); // show sl-dialog
+
+    dialogEl.show(); // on hide delete dialogEl
+
+    dialogEl.addEventListener('sl-after-hide', () => {
+      dialogEl.remove();
+    });
+  }
+
+  async addFavHandler() {
+    try {
+      await _UserAPI.default.addFavDesign(this.id);
+
+      _Toast.default.show('Design added to favourites');
+    } catch (err) {
+      _Toast.default.show(err, 'error');
+    }
+  }
+
+  async downloadHandler() {
+    try {
+      // await UserAPI.downloadDesign(this.id)
+      _Toast.default.show('Design downloaded*');
+    } catch (err) {
+      _Toast.default.show(err, 'error');
+    }
+  }
+
+  render() {
+    return (0, _litElement.html)(_templateObject2(), this.moreInfoHandler.bind(this), _App.default.apiBase, this.image, this.name, this.name, this.price, () => (0, _Router.gotoRoute)("/public?id=".concat(this.user._id)), this.user.firstName, this.user.lastName, this.moreInfoHandler.bind(this), this.addFavHandler.bind(this));
+  }
+
+});
+},{"@polymer/lit-element":"../node_modules/@polymer/lit-element/lit-element.js","lit-html":"../node_modules/lit-html/lit-html.js","../Router":"Router.js","../Auth":"Auth.js","../App":"App.js","../UserAPI":"UserAPI.js","../Toast":"Toast.js"}],"components/va-design-small.js":[function(require,module,exports) {
+"use strict";
+
+var _litElement = require("@polymer/lit-element");
+
+var _litHtml = require("lit-html");
+
+var _Router = require("../Router");
+
+var _Auth = _interopRequireDefault(require("../Auth"));
+
+var _App = _interopRequireDefault(require("../App"));
+
+var _UserAPI = _interopRequireDefault(require("../UserAPI"));
+
+var _Toast = _interopRequireDefault(require("../Toast"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _templateObject2() {
+  const data = _taggedTemplateLiteral(["\n    <style>\n      .author {\n        font-size: 0.9em;\n        font-style: italic;\n        opacity: 0.8;\n        cursor: pointer;\n      }\n      .moreInfoText{\n        position: absolute;\n        top: 120px;\n        left: 34%;\n        display: flex;\n        justify-items: center;\n        user-select: none;\n        cursor: pointer;\n        opacity: 0;\n        color: white;\n        pointer-events: none;\n      }\n\n\n      .design-image{\n        height: 300px;\n        width: 300px;\n        max-height: 100%;\n        max-width: 100%;\n        overflow: hidden;\n        justify-items: center;\n        display: grid;\n        justify-content: center;\n        \n        \n      }\n\n      img.design-image{\n      cursor: pointer;\n      transform: scale(0.9);\n      }\n      img.design-image:hover {\n      cursor: pointer;\n      filter: blur(2px);\n      filter: brightness(1.1);\n      transform: scale(2);\n      transition: transform 0.1s ease-in-out;\n      }\n\n\n\n   \n\n      \n      @media all and (max-width: 768px){ \n    .designs-container{\n\n    display: grid;\n    grid-template-columns: repeat(auto-fit, minmax(160px, 200px));\n    grid-auto-rows: repeat(auto-fit, minmax(auto, auto));\n    grid-gap: 1em;\n    padding: 3em;\n    justify-items: center;\n    justify-content: center;\n    }\n    .design-image{\n      height: 200px;\n      width: 100%;\n    }\n    h2{\n      font-size:1.1rem;\n    }\n\n\n\n    \n  }\n\n    </style>\n\n    <sl-card>\n \n\n\n      <img @click=", " class=\"design-image\" slot=\"image\" src=\"", "/images/", "\" alt=\"", "\" />\n      <div class=\"moreInfoText\"><h3>More Info</h3></div>\n      <h2>", "</h2>\n      <h3>$", "</h3>\n      <a @click=", "><p class=\"author\">By ", " ", "</p></a>\n      <sl-button @click=", ">More info</sl-button>\n      <sl-icon-button name=\"heart-fill\" label=\"Add to favourites\" @click=", "></sl-icon-button>\n    </sl-card>\n    "]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -16933,7 +17409,7 @@ function _templateObject() {
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-customElements.define('va-design', class Design extends _litElement.LitElement {
+customElements.define('va-design-small', class DesignSmall extends _litElement.LitElement {
   constructor() {
     super();
   }
@@ -17010,6 +17486,248 @@ customElements.define('va-design', class Design extends _litElement.LitElement {
 
   render() {
     return (0, _litElement.html)(_templateObject2(), this.moreInfoHandler.bind(this), _App.default.apiBase, this.image, this.name, this.name, this.price, () => (0, _Router.gotoRoute)("/public?id=".concat(this.user._id)), this.user.firstName, this.user.lastName, this.moreInfoHandler.bind(this), this.addFavHandler.bind(this));
+  }
+
+});
+},{"@polymer/lit-element":"../node_modules/@polymer/lit-element/lit-element.js","lit-html":"../node_modules/lit-html/lit-html.js","../Router":"Router.js","../Auth":"Auth.js","../App":"App.js","../UserAPI":"UserAPI.js","../Toast":"Toast.js"}],"components/va-profile.js":[function(require,module,exports) {
+"use strict";
+
+var _litElement = require("@polymer/lit-element");
+
+var _litHtml = require("lit-html");
+
+var _Router = require("../Router");
+
+var _Auth = _interopRequireDefault(require("../Auth"));
+
+var _App = _interopRequireDefault(require("../App"));
+
+var _UserAPI = _interopRequireDefault(require("../UserAPI"));
+
+var _Toast = _interopRequireDefault(require("../Toast"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _templateObject2() {
+  const data = _taggedTemplateLiteral(["\n    <style>\n      .author {\n        font-size: 0.9em;\n        font-style: italic;\n        opacity: 0.8;\n        cursor: pointer;\n      }\n      .moreInfoText{\n        position: absolute;\n        top: 120px;\n        left: 34%;\n        display: flex;\n        justify-items: center;\n        user-select: none;\n        cursor: pointer;\n        opacity: 0;\n        color: white;\n        pointer-events: none;\n      }\n\n\n      .design-image{\n        height: 300px;\n        width: 300px;\n        max-height: 100%;\n        max-width: 100%;\n        overflow: hidden;\n        justify-items: center;\n        display: grid;\n        justify-content: center;\n\n        \n      }\n\n      img.design-image{\n      cursor: pointer;\n      transform: scale(0.9);\n      }\n      img.design-image:hover {\n      cursor: pointer;\n\n      transform: scale(0.95);\n      transition: transform 0.1s ease-in-out;\n      }\n\n      h2{\n        cursor: pointer;\n      }\n\n   \n\n      \n      @media all and (max-width: 768px){ \n    .designs-container{\n\n    display: grid;\n    grid-template-columns: repeat(auto-fit, minmax(160px, 200px));\n    grid-auto-rows: repeat(auto-fit, minmax(auto, auto));\n    grid-gap: 1em;\n    padding: 3em;\n    justify-items: center;\n    justify-content: center;\n    }\n    .design-image{\n      height: 200px;\n      width: 100%;\n    }\n    h2{\n      font-size:1.1rem;\n      cursor: pointer;\n    }\n\n\n\n    \n  }\n\n    </style>\n\n    <sl-card @click=", ">\n      \n\n\n      <img @click=", " class=\"design-image\" slot=\"image\" src=\"", "/images/", "\" alt=\"", "\" onerror=\"this.src='/images/default_avatar.png';\" />\n\n      <h2  @click=", ">", "</h2>\n\n      <a @click=", "><p class=\"author\">View ", "'s profile</p></a>\n      \n\n\n    </sl-card>\n    "]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  const data = _taggedTemplateLiteral(["\n          <style>\n        .wrap {\n          display: flex;\n        }\n        .image {\n          width: 50%;\n        }\n        .image img {\n          width: 80%;\n          box-shadow: 5px 5px 5px rgba(170, 170, 170, 0.2);\n          border-radius: 25px;\n        }\n        .content {\n          padding-left: 1em;\n        }\n        .gender span,\n        .length span {\n          text-transform: uppercase;\n          font-weight: bold;\n        }\n        .price{\n          font-size: 1.5em;\n          color: var(--brand-color)\n        }\n      </style>\n      <div class=\"wrap\">\n        <div class=\"image\">\n          <img src=\"", "/images/", "\" alt=\"", "\" />\n          \n        </div>\n        <div class=\"content\">\n          <h1>", "</h1>\n          <p>", "</p>\n          <p class=\"price\">$", "</p>\n          <p class=\"gender\">Gender: <span>", "</span></p>\n          <p class=\"length\">Length: <span>", "</span></p>\n\n          <sl-button @click=", ">\n            <sl-icon slot=\"prefix\" name=\"heart-fill\"></sl-icon>\n            Add to Favourites\n          </sl-button>\n          <sl-button @click=", ">\n            <sl-icon slot=\"prefix\" name=\"save\"></sl-icon>\n            Download\n            <a href=\"", "/images/", "\" download=\"", "\"></a>\n          </sl-button>\n        </div>\n      </div>\n    "]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+customElements.define('va-profile', class Profile extends _litElement.LitElement {
+  constructor() {
+    super();
+  }
+
+  static get properties() {
+    return {
+      id: {
+        type: String
+      },
+      name: {
+        type: String
+      },
+      description: {
+        type: String
+      },
+      price: {
+        type: String
+      },
+      user: {
+        type: Object
+      },
+      image: {
+        type: String
+      },
+      gender: {
+        type: String
+      },
+      length: {
+        type: String
+      }
+    };
+  }
+
+  firstUpdated() {
+    super.firstUpdated();
+  }
+
+  moreInfoHandler() {
+    // create sl-dialog
+    const dialogEl = document.createElement('sl-dialog'); // add className
+
+    dialogEl.className = 'design-dialog'; // sl-dialog content
+
+    const dialogContent = (0, _litElement.html)(_templateObject(), _App.default.apiBase, this.image, this.name, this.name, this.description, this.price, this.gender, this.length, this.addFavHandler.bind(this), this.downloadHandler.bind(this), _App.default.apiBase, this.image, this.name);
+    (0, _litHtml.render)(dialogContent, dialogEl); // append to document.body
+
+    document.body.append(dialogEl); // show sl-dialog
+
+    dialogEl.show(); // on hide delete dialogEl
+
+    dialogEl.addEventListener('sl-after-hide', () => {
+      dialogEl.remove();
+    });
+  }
+
+  async addFavHandler() {
+    try {
+      await _UserAPI.default.addFavDesign(this.id);
+
+      _Toast.default.show('Design added to favourites');
+    } catch (err) {
+      _Toast.default.show(err, 'error');
+    }
+  }
+
+  async downloadHandler() {
+    try {
+      // await UserAPI.downloadDesign(this.id)
+      _Toast.default.show('Design downloaded*');
+    } catch (err) {
+      _Toast.default.show(err, 'error');
+    }
+  }
+
+  render() {
+    return (0, _litElement.html)(_templateObject2(), () => (0, _Router.gotoRoute)("/public?id=".concat(this.user._id)), () => (0, _Router.gotoRoute)("/public?id=".concat(this.user._id)), _App.default.apiBase, this.image, this.name, () => (0, _Router.gotoRoute)("/public?id=".concat(this.user._id)), this.name, () => (0, _Router.gotoRoute)("/public?id=".concat(this.user._id)), this.user.firstName);
+  }
+
+});
+},{"@polymer/lit-element":"../node_modules/@polymer/lit-element/lit-element.js","lit-html":"../node_modules/lit-html/lit-html.js","../Router":"Router.js","../Auth":"Auth.js","../App":"App.js","../UserAPI":"UserAPI.js","../Toast":"Toast.js"}],"components/va-design-favourite.js":[function(require,module,exports) {
+"use strict";
+
+var _litElement = require("@polymer/lit-element");
+
+var _litHtml = require("lit-html");
+
+var _Router = require("../Router");
+
+var _Auth = _interopRequireDefault(require("../Auth"));
+
+var _App = _interopRequireDefault(require("../App"));
+
+var _UserAPI = _interopRequireDefault(require("../UserAPI"));
+
+var _Toast = _interopRequireDefault(require("../Toast"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _templateObject2() {
+  const data = _taggedTemplateLiteral(["\n    <style>\n      .author {\n        font-size: 0.9em;\n        font-style: italic;\n        opacity: 0.8;\n        cursor: pointer;\n      }\n      .moreInfoText{\n        position: absolute;\n        top: 120px;\n        left: 34%;\n        display: flex;\n        justify-items: center;\n        user-select: none;\n        cursor: pointer;\n        opacity: 0;\n        color: white;\n        pointer-events: none;\n      }\n\n\n      .design-image{\n        height: 300px;\n        width: 300px;\n        max-height: 100%;\n        max-width: 100%;\n        overflow: hidden;\n        justify-items: center;\n        display: grid;\n        justify-content: center;\n        \n        \n      }\n\n      img.design-image{\n      cursor: pointer;\n      transform: scale(0.9);\n      }\n      img.design-image:hover {\n      cursor: pointer;\n      filter: blur(2px);\n      filter: brightness(1.1);\n      transform: scale(2);\n      transition: transform 0.1s ease-in-out;\n      }\n\n\n\n   \n\n      \n      @media all and (max-width: 768px){ \n    .designs-container{\n\n    display: grid;\n    grid-template-columns: repeat(auto-fit, minmax(160px, 200px));\n    grid-auto-rows: repeat(auto-fit, minmax(auto, auto));\n    grid-gap: 1em;\n    padding: 3em;\n    justify-items: center;\n    justify-content: center;\n    }\n    .design-image{\n      height: 200px;\n      width: 100%;\n    }\n    h2{\n      font-size:1.1rem;\n    }\n\n\n\n    \n  }\n\n    </style>\n\n    <sl-card>\n \n\n\n      <img @click=", " class=\"design-image\" slot=\"image\" src=\"", "/images/", "\" alt=\"", "\" />\n      <div class=\"moreInfoText\"><h3>More Info</h3></div>\n      <h2>", "</h2>\n      <h3>$", "</h3>\n      <a @click=", "><p class=\"author\">By ", " ", "</p></a>\n      <sl-button @click=", ">More info</sl-button>\n\n    </sl-card>\n    "]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  const data = _taggedTemplateLiteral(["\n          <style>\n        .wrap {\n          display: flex;\n        }\n        .image {\n          width: 50%;\n        }\n        .image img {\n          width: 80%;\n          box-shadow: 5px 5px 5px rgba(170, 170, 170, 0.2);\n          border-radius: 25px;\n        }\n        .content {\n          padding-left: 1em;\n        }\n        .gender span,\n        .length span {\n          text-transform: uppercase;\n          font-weight: bold;\n        }\n        .price{\n          font-size: 1.5em;\n          color: var(--brand-color)\n        }\n      </style>\n      <div class=\"wrap\">\n        <div class=\"image\">\n          <img src=\"", "/images/", "\" alt=\"", "\" />\n          \n        </div>\n        <div class=\"content\">\n          <h1>", "</h1>\n          <p>", "</p>\n          <p class=\"price\">$", "</p>\n\n\n          <sl-button @click=", ">\n            <sl-icon slot=\"prefix\" name=\"heart-fill\"></sl-icon>\n            Add to Favourites\n          </sl-button>\n          <sl-button @click=", ">\n            <sl-icon slot=\"prefix\" name=\"save\"></sl-icon>\n            Download\n            <a href=\"", "/images/", "\" download=\"", "\"></a>\n          </sl-button>\n          <sl-button @click=", "><sl-icon slot=\"prefix\" name=\"person\"></sl-icon>Visit author</sl-button>\n        </div>\n      </div>\n    "]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+customElements.define('va-design-favourite', class Favourite extends _litElement.LitElement {
+  constructor() {
+    super();
+  }
+
+  static get properties() {
+    return {
+      id: {
+        type: String
+      },
+      name: {
+        type: String
+      },
+      description: {
+        type: String
+      },
+      price: {
+        type: String
+      },
+      user: {
+        type: Object
+      },
+      image: {
+        type: String
+      },
+      gender: {
+        type: String
+      },
+      length: {
+        type: String
+      }
+    };
+  }
+
+  firstUpdated() {
+    super.firstUpdated();
+  }
+
+  moreInfoHandler() {
+    // create sl-dialog
+    const dialogEl = document.createElement('sl-dialog'); // add className
+
+    dialogEl.className = 'design-dialog'; // sl-dialog content
+
+    const dialogContent = (0, _litElement.html)(_templateObject(), _App.default.apiBase, this.image, this.name, this.name, this.description, this.price, this.addFavHandler.bind(this), this.downloadHandler.bind(this), _App.default.apiBase, this.image, this.name, () => (0, _Router.gotoRoute)("/public?id=".concat(this.user._id)));
+    (0, _litHtml.render)(dialogContent, dialogEl); // append to document.body
+
+    document.body.append(dialogEl); // show sl-dialog
+
+    dialogEl.show(); // on hide delete dialogEl
+
+    dialogEl.addEventListener('sl-after-hide', () => {
+      dialogEl.remove();
+    });
+  }
+
+  async addFavHandler() {
+    try {
+      await _UserAPI.default.addFavDesign(this.id);
+
+      _Toast.default.show('Design added to favourites');
+    } catch (err) {
+      _Toast.default.show(err, 'error');
+    }
+  }
+
+  async downloadHandler() {
+    try {
+      // await UserAPI.downloadDesign(this.id)
+      _Toast.default.show('Design downloaded*');
+    } catch (err) {
+      _Toast.default.show(err, 'error');
+    }
+  }
+
+  render() {
+    return (0, _litElement.html)(_templateObject2(), this.moreInfoHandler.bind(this), _App.default.apiBase, this.image, this.name, this.name, this.price, () => (0, _Router.gotoRoute)("/public?id=".concat(this.user._id)), this.user.firstName, this.user.lastName, this.moreInfoHandler.bind(this));
   }
 
 });
@@ -17094,6 +17812,12 @@ require("./components/va-app-header");
 
 require("./components/va-design");
 
+require("./components/va-design-small");
+
+require("./components/va-profile");
+
+require("./components/va-design-favourite");
+
 require("./scss/master.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -17104,7 +17828,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 document.addEventListener('DOMContentLoaded', () => {
   _App.default.init();
 });
-},{"./App.js":"App.js","./components/va-app-header":"components/va-app-header.js","./components/va-design":"components/va-design.js","./scss/master.scss":"scss/master.scss"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./App.js":"App.js","./components/va-app-header":"components/va-app-header.js","./components/va-design":"components/va-design.js","./components/va-design-small":"components/va-design-small.js","./components/va-profile":"components/va-profile.js","./components/va-design-favourite":"components/va-design-favourite.js","./scss/master.scss":"scss/master.scss"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -17132,7 +17856,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49440" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60133" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

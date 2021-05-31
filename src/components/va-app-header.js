@@ -122,11 +122,11 @@ customElements.define('va-app-header', class AppHeader extends LitElement {
       }
 
       .app-side-menu-logo {
-        width: 120px;
+        width: 200px;
         margin-bottom: 1em;
         position: absolute;
         top: 2em;
-        left: 1.5em;
+        left: 0.1em;
       }
 
       .page-title {
@@ -163,9 +163,7 @@ customElements.define('va-app-header', class AppHeader extends LitElement {
 
       <nav class="app-top-nav">
         <a href="/" @click="${anchorRoute}">Home</a>  
-        ${this.user.accessLevel == 2 ? html`
-        <a href="/newDesign" @click="${anchorRoute}">Add design</a>  
-        ` : ``}          
+     
         <sl-dropdown>
           <a slot="trigger" href="#" @click="${(e) => e.preventDefault()}">
             <sl-avatar style="--size: 24px;" image=${(this.user && this.user.avatar) ? `${App.apiBase}/images/${this.user.avatar}` : ''}></sl-avatar> ${this.user && this.user.firstName}
@@ -184,9 +182,9 @@ customElements.define('va-app-header', class AppHeader extends LitElement {
       <nav class="app-side-menu-items">
         <a href="/" @click="${this.menuClick}"> <sl-icon name="house" class="icon-styling" style="font-size: 0.8em;"></sl-icon></sl-icon> Home</a>
         <a href="/designs" @click="${this.menuClick}"><sl-icon name="stickies" class="icon-styling" style="font-size: 0.8em;"></sl-icon>  Find a design</a>
-        ${this.user.accessLevel == 2 ? html`
+
         <a href="/newDesign" @click="${this.menuClick}"><sl-icon name="plus-square" class="icon-styling" style="font-size: 0.8em;"></sl-icon>  Add a design</a>  
-        ` : ``}   
+
 
 
         <a href="/favouriteDesigns" @click="${this.menuClick}"><sl-icon name="suit-heart" class="icon-styling" style="font-size: 0.8em;"></sl-icon></sl-icon> Favourite designs</a>

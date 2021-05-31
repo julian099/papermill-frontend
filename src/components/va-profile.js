@@ -6,7 +6,9 @@ import App from '../App'
 import UserAPI from '../UserAPI'
 import Toast from '../Toast'
 
-customElements.define('va-design', class Design extends LitElement {
+
+
+customElements.define('va-profile', class Profile extends LitElement {
   constructor(){
     super()    
   }
@@ -43,10 +45,6 @@ customElements.define('va-design', class Design extends LitElement {
   firstUpdated(){
     super.firstUpdated()
   }
-
-
-
-
 
   moreInfoHandler(){  
     // create sl-dialog
@@ -89,7 +87,8 @@ customElements.define('va-design', class Design extends LitElement {
           <h1>${this.name}</h1>
           <p>${this.description}</p>
           <p class="price">$${this.price}</p>
-
+          <p class="gender">Gender: <span>${this.gender}</span></p>
+          <p class="length">Length: <span>${this.length}</span></p>
 
           <sl-button @click=${this.addFavHandler.bind(this)}>
             <sl-icon slot="prefix" name="heart-fill"></sl-icon>
@@ -100,7 +99,6 @@ customElements.define('va-design', class Design extends LitElement {
             Download
             <a href="${App.apiBase}/images/${this.image}" download="${this.name}"></a>
           </sl-button>
-          <sl-button @click=${() => gotoRoute(`/public?id=${this.user._id}`)}><sl-icon slot="prefix" name="person"></sl-icon>Visit author</sl-button>
         </div>
       </div>
     `
@@ -132,6 +130,12 @@ customElements.define('va-design', class Design extends LitElement {
       Toast.show(err, 'error')
     }
   }
+
+
+
+
+
+
 
   
   render(){    
@@ -166,7 +170,7 @@ customElements.define('va-design', class Design extends LitElement {
         justify-items: center;
         display: grid;
         justify-content: center;
-        
+
         
       }
 
@@ -176,13 +180,14 @@ customElements.define('va-design', class Design extends LitElement {
       }
       img.design-image:hover {
       cursor: pointer;
-      filter: blur(2px);
-      filter: brightness(1.1);
-      transform: scale(2);
+
+      transform: scale(0.95);
       transition: transform 0.1s ease-in-out;
       }
 
-
+      h2{
+        cursor: pointer;
+      }
 
    
 
@@ -204,6 +209,7 @@ customElements.define('va-design', class Design extends LitElement {
     }
     h2{
       font-size:1.1rem;
+      cursor: pointer;
     }
 
 
@@ -213,17 +219,18 @@ customElements.define('va-design', class Design extends LitElement {
 
     </style>
 
-    <sl-card>
- 
+    <sl-card @click=${() => gotoRoute(`/public?id=${this.user._id}`)}>
+      
 
 
-      <img @click=${this.moreInfoHandler.bind(this)} class="design-image" slot="image" src="${App.apiBase}/images/${this.image}" alt="${this.name}" />
-      <div class="moreInfoText"><h3>More Info</h3></div>
-      <h2>${this.name}</h2>
-      <h3>$${this.price}</h3>
-      <a @click=${() => gotoRoute(`/public?id=${this.user._id}`)}><p class="author">By ${this.user.firstName} ${this.user.lastName}</p></a>
-      <sl-button @click=${this.moreInfoHandler.bind(this)}>More info</sl-button>
-      <sl-icon-button name="heart-fill" label="Add to favourites" @click=${this.addFavHandler.bind(this)}></sl-icon-button>
+      <img @click=${() => gotoRoute(`/public?id=${this.user._id}`)} class="design-image" slot="image" src="${App.apiBase}/images/${this.image}" alt="${this.name}" onerror="this.src='/images/default_avatar.png';" />
+
+      <h2  @click=${() => gotoRoute(`/public?id=${this.user._id}`)}>${this.name}</h2>
+
+      <a @click=${() => gotoRoute(`/public?id=${this.user._id}`)}><p class="author">View ${this.user.firstName}'s profile</p></a>
+      
+
+
     </sl-card>
     `
   }

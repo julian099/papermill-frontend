@@ -49,7 +49,7 @@ class newDesignView {
   render(){
     const template = html`
       <va-app-header title="New Design" user="${JSON.stringify(Auth.currentUser)}"></va-app-header>
-      <div class="page-content">
+      <div class="page-content-secondary">
         <div class="vhCap">  
         <div class="grid">
         <article>
@@ -57,15 +57,15 @@ class newDesignView {
         <sl-form class="form-signup" @sl-submit=${this.newDesignSubmitHandler}>
           <input type="hidden" name="user" value="${Auth.currentUser._id}" />
           <div class="input-group">
-            <sl-input name="name" type="text" placeholder="Design Name" required></sl-input>
+            <sl-input name="name" maxlength="20" type="text" placeholder="Design Name" required></sl-input>
           </div>
           <div class="input-group">              
-            <sl-input name="price" type="text" placeholder="Price" required>
+            <sl-input name="price" type="text" maxlength="3" placeholder="Price" required>
               <span slot="prefix">$</span>
             </sl-input>
           </div>
           <div class="input-group">
-            <sl-textarea name="description" id="descriptionWindow" rows="3" placeholder="Description"></sl-textarea>
+            <sl-textarea name="description" id="descriptionWindow" rows="6" maxlength="150" placeholder="Describe your work"></sl-textarea>
           </div>
           <div class="input-group" id="imageInput" style="margin-bottom: 2em;">
             <label>Image</label><br>
@@ -80,14 +80,14 @@ class newDesignView {
             </sl-radio-group>
           </div>
           <div class="input-group" style="margin-bottom: 2em;">
-            <label>How would you describe the design?</label><br>
+            <label>What sort of design is it?</label><br>
             <sl-radio-group label="Select length" no-fieldset>
-              <sl-radio name="length" value="s">Fun</sl-radio>
-              <sl-radio name="length" value="m">Classic</sl-radio>
-              <sl-radio name="length" value="l">Minimal</sl-radio>
+              <sl-radio name="length" value="s">Flat</sl-radio>
+              <sl-radio name="length" value="m">3D</sl-radio>
+              <sl-radio name="length" value="l">Realistic</sl-radio>
             </sl-radio-group>
           </div>
-          <sl-button type="primary" class="submit-btn" submit>Add Design</sl-button>
+          <sl-button type="primary" class="submit-btn" submit><sl-icon name="plus-square"></sl-icon> Add Design</sl-button>
         </sl-form>  
         </div>
         

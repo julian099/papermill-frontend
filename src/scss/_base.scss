@@ -59,7 +59,15 @@ a {
 }
 .profile-centre {
   text-align: center;
-  padding-top: 30px;
+  padding-top: 80px;
+  
+
+
+
+
+
+  border-radius: 10px;
+
 }
 
 .large-text {
@@ -104,6 +112,20 @@ a {
   }
 }
 
+.page-content-secondary{
+  position: absolute;
+  top: var(--app-header-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  overflow: hidden;
+  
+  
+  &.no-pad {
+    padding: 0;
+  }
+}
 
 
 
@@ -157,10 +179,30 @@ a {
 }
 
 
+.designs-container-profile{
+    
+  /* Supports Grid */
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+  grid-auto-rows: repeat(auto-fit, minmax(300px, 300px));
+  grid-gap: 1em;
+  padding: 4em;
+  justify-items: center;
+  justify-content: center;
+  padding-bottom: 100px;
+
+
+}
+
+
+
+
 .design-card {
   -moz-box-shadow: 5px 5px 5px rgba(170, 170, 170, 0.6);
   -webkit-box-shadow: 5px 5px 5px rgba(170, 170, 170, 0.6);
   box-shadow: 5px 5px 5px rgba(170, 170, 170, 0.2);
+
 }
 
 
@@ -175,8 +217,7 @@ a {
 
 
 
-// new designer container
-
+// 
 .newDesignContainer{
   display: grid;
   justify-items: center;
@@ -235,6 +276,8 @@ article {
 }
 
 
+
+
 #descriptionWindow{
   border-radius: 25px;
   box-shadow: 5px 5px 5px rgba(170, 170, 170, 0.2);
@@ -269,18 +312,323 @@ article {
 }
 
 
-//  footer styling
+//  guide styling
 
 
-.footerWave {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-   }
+.home-container-guide{
+  display: grid;
+  margin-left: 25%;
+  margin-right: 25%;
+
+}
+
+
 
 
 // HOME PAGE STYLING
 
+
+.home-container-main{
+  display: grid;
+  width: 100%;
+
+}
+
+
+
+
+.grid-container-home{
+
+    display: flex;
+    flex-wrap: wrap;
+
+  grid-auto-flow: column;
+    grid-template-columns: repeat( auto-fit, minmax(2503px, 1fr) );
+    grid-template-rows: 1fr;
+    align-content: center;
+    justify-content: center;
+
+
+
+    margin-top: calc(50px + 4em);
+
+
+
+}
+
+
+.home-item1, .home-item2, .home-item3, .home-item4, .home-item5, .home-item6{
+  background-color: #ffffff;
+  flex: 1 1 300px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(170, 170, 170, 0.2);
+  margin: 0.4em;
+  align-content: center;
+  max-width: 250px;
+  margin: 1em;
+}
+
+.home-item1:hover, .home-item2:hover, .home-item3:hover, .home-item4:hover, .home-item5:hover, .home-item6:hover{
+  cursor: pointer;
+  box-shadow: none;
+
+  box-shadow: 5px 5px 5px rgba(170, 170, 170, 0.5);
+
+  border-width: 5px;
+    .home_artwork{
+      transform: scale(1.05);
+    }
+}
+
+
+
+.home-item1{
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+.home-item2{
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+.home-item3{
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+.home-item4{
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+
+
+.wrap{
+  perspective-origin: 50% 50%;
+}
+
+.page{
+  margin: 3%;
+  max-width:600px;
+  margin-left:auto;
+  margin-right: auto;
+  padding: 30px;
+  border-radius: 3px;
+  text-align:center;
+  font-size: 1.4vw;
+  h2{
+    font-weight: bold;
+    font-size: 6.5vw;
+    font-weight: 900;
+    font-style: italic;
+    color:#dad8ec;
+  }
+}
+li {
+  list-style: none;
+  padding: 1em;
+}
+
+$colors: #6fa5e2, #d6af87;
+$repeat: 2;  // How often you want the pattern to repeat.
+// Warning: a higher number outputs more CSS.
+
+@for $i from 1 through $repeat {
+    li:nth-child(#{length($colors)}n+#{$i}) {
+        stroke: lighten(nth($colors, random(length($colors))), 20%);
+
+    }
+  }
+.svg{
+  stroke: #6fa5e2;
+  position:absolute;
+  bottom: -50vh;
+  transform-style: preserve-3d;
+}
+.svg2{
+  stroke: #d6af87;
+  position:absolute;
+  bottom: -100vh;
+  transform-style: preserve-3d;
+}
+.svg3{
+
+  position:absolute;
+  bottom: -50vh;
+  transform-style: preserve-3d;
+}
+
+$total: 10;
+@for $i from 1 through $total {
+  $scale:random(2) - .4;
+  
+  .svg:nth-child(#{$i}){
+    left:random(120) * 1% - 20;
+    animation: raise#{$i} 20 + random(40) +s linear infinite;
+    animation-delay:random(5) - 5 + s;
+    transform: scale(.3 * $i - .6) rotate(random(360) + deg);
+    z-index: $i - 10;
+    filter: blur($i - 10 + px);
+
+    @keyframes raise#{$i} {
+      to{
+       bottom:150vh;
+       transform: scale(.3 * $i - .6) rotate(random(360) + deg);
+      }
+    }
+  }
+}
+
+
+$total: 10;
+@for $i from 1 through $total {
+  $scale:random(2) - .4;
+  
+  .svg2:nth-child(#{$i}){
+    left:random(120) * 1% - 20;
+    animation: raise#{$i} 20 + random(40) +s linear infinite;
+    animation-delay:random(5) - 5 + s;
+    transform: scale(.3 * $i - .6) rotate(random(360) + deg);
+    z-index: $i - 10;
+    filter: blur($i - 10 + px);
+
+    @keyframes raise#{$i} {
+      to{
+       bottom:150vh;
+       transform: scale(.3 * $i - .6) rotate(random(360) + deg);
+      }
+    }
+  }
+}
+
+
+$total: 10;
+@for $i from 1 through $total {
+  $scale:random(2) - .4;
+  
+  .svg3:nth-child(#{$i}){
+    left:random(120) * 1% - 20;
+    animation: raise#{$i} 20 + random(40) +s linear infinite;
+    animation-delay:random(5) - 5 + s;
+    transform: scale(.3 * $i - .6) rotate(random(360) + deg);
+    z-index: $i - 7;
+    filter: blur($i - 10 + px);
+
+    @keyframes raise#{$i} {
+      to{
+       bottom:150vh;
+       transform: scale(.3 * $i - .6) rotate(random(360) + deg);
+      }
+    }
+  }
+}
+
+.home_image_wrapper{
+  position: relative;
+  display: flex;
+}
+
+.home_artwork{
+  top: 70px;
+  display: flex;
+}
+
+.home_title{
+  display: flex;
+  position: relative;
+  justify-content: center;
+  margin-top: 20px;
+
+}
+
+
+
+
+// public profile styling
+.profile-grid{
+  display: grid;
+  justify-content: center;
+}
+
+
+.profile-item1{
+  display: block;
+  position: relative;
+  justify-items: center;
+  background-color: white;
+
+
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(170, 170, 170, 0.2);
+}
+
+
+.profile-item4{
+  display: flex;
+  margin-top: 25px;
+  position: relative;
+  justify-items: center;
+  justify-content: center;
+  background-color: white;
+  max-width: 300px;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+
+
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(170, 170, 170, 0.2);
+}
+
+
+.profile-title{
+
+
+  margin-right: 25%;
+  margin-left: 25%;
+  margin-top: 50px;
+}
+
+
+
+// favourites page styling
+
+
+
+// edit styling
+
+.edit-grid{
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  margin-top: 200px;
+}
+
+
+.edit-btn{
+  position: fixed;
+  right: 40px;
+  top: 60px;
+}
+
+
+// 404 styling
+
+.fourOhFour{
+  font-size: 150px;
+}
+
+
+
+// guide styling
+
+.guide-text-1{
+  margin-top: 3em;
+}
 
 
 
@@ -302,6 +650,16 @@ article {
   min-height: 300px;
   display: flex;
   max-height: 25vh;
+}
+
+
+.search-bar-wrapper{
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  justify-items: center;
+  padding-top: 2em;
+  
 }
 
 
@@ -345,13 +703,56 @@ article {
   grid-row: 3 / span 4;
 }
 
+
+
+// footer styling 
+
+
+
+
+
+// public profile responsive
+@media all and (min-width: 1200px) {
+  .profile-item4{
+    max-width: 800px;
+  } 
+}
+
+@media all and (min-width: 600px) {
+  .profile-item4{
+    max-width: 400px;
+  } 
+}
+
+@media all and (min-width: 900px) {
+  .profile-item4{
+    max-width: 600px;
+  } 
+}
+
 // new design page styling
 
 
 
+@media all and (min-width: 1582px) {
+  .home-container-main{
+    display: flex;
+    padding: 5em;
+  }
+}
 
-
-
+@media all and (min-width: 1440px) {
+  .home-container-main{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+  }
+  .grid-container-home{
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+  }
+}
 
 
 // responsive filter

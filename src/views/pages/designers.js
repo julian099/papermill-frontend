@@ -13,6 +13,7 @@ class designersView {
     this.allusers = null  
     this.render()    
     Utils.pageIntroAnim()
+    Utils.designProfilesAnim()
     await this.getAllUsers()
   }
 
@@ -29,32 +30,38 @@ class designersView {
 
   
 
+  
+
+
+  
+
   render(){
     const template = html`
     <va-app-header title="Designers" user="${JSON.stringify(Auth.currentUser)}"></va-app-header> 
-    <div class="page-content calign">        
-      ${Auth.currentUser && Auth.currentUser.avatar ? html`
-        <sl-avatar style="--size: 200px; margin-bottom: 1em;" image=${(Auth.currentUser && Auth.currentUser.avatar) ? `${App.apiBase}/images/${Auth.currentUser.avatar}` : ''}></sl-avatar>
-      `:html`
-      <sl-avatar style="--size: 200px; margin-bottom: 1em;"></sl-avatar>
-      `}
-      <h2>${Auth.currentUser.firstName} ${Auth.currentUser.lastName}</h2>
-      <p>${Auth.currentUser.email}</p>
-
+    <div class="page-content calign">      
       
+
+          <main>
+              <div class="design-artwork_wrapper">
+              <img class="design_artwork" id="design_artwork" src="/images/designers_artwork.svg">
+              </div>
+          </main>
+
       <div class="designs-container">
+      
+
           ${this.allusers == null ? html`
             <sl-spinner></sl-spinner>
           `: html`
           ${this.allusers.map(user => html`
-            <va-design class="design-card"
+            <va-profile class="design-card"
             user="${JSON.stringify(user)}"
             name="${user.firstName} ${user.lastName}" 
             image="${user.avatar}"
             
             
             >
-            </va-design>
+            </va-profile>
             
               
               `)}
@@ -62,15 +69,9 @@ class designersView {
         </div>
 
 
-      ${Auth.currentUser.bio ? html`
-      <h3>Bio</h3>
-      <p>${Auth.currentUser.bio}</p>
-      `: html`
-      <p>No bio found.</p>
-      `}
 
 
-      <sl-button @click=${()=> gotoRoute('/editProfile')}>Edit Profile</sl-button>
+
     </div>      
   `
     render(template, App.rootEl)

@@ -14,6 +14,7 @@ class designsView {
     Utils.designArtworkAnim()
     Utils.filterWrapperAnim()
     await this.getDesigns()
+
     Utils.designContainerAnim()
   }
 
@@ -47,6 +48,15 @@ class designsView {
     if(field == 'length'){
       filteredDesigns = this.designs.filter(design => design.length == match)
     }
+
+    // name
+    if(field == 'name'){
+      // filter this.designs design.name contains a searchQuery
+      filteredDesigns = this.designs.filter(design => design.name.toLowerCase().includes(match.toLowerCase())) 
+
+      
+    }
+
     
     //render
     this.designs = filteredDesigns
@@ -95,7 +105,15 @@ class designsView {
     }
   }
 
-
+  handleSearchKeyUp(e){
+    // if search query is empty clear filters
+    if(e.target.value == ''){
+      this.getDesigns()
+        }else{
+          // filter designs based on name and search query
+          this.filterDesigns('name', e.target.value)
+        }
+  }
 
   render(){
     const template = html`
@@ -122,6 +140,9 @@ class designsView {
           </main>
 
           </div>
+          <div class="search-bar-wrapper">
+        <sl-input  inputmode="search" size="large" clearable @keyup=${this.handleSearchKeyUp.bind(this)} placeholder="Search"><sl-icon name="search" slot="prefix"></sl-icon></sl-input> 
+      </div>
         <div class="filter-menu-wrapper">
       <div class="filter-menu">
       <div>
@@ -129,19 +150,20 @@ class designsView {
         <div class="btn-col1">
         <sl-button class="filter-btn" pill size="medium" data-field="gender" data-match="m" @click=${this.handleFilterBtn.bind(this)}>Textures</sl-button>
         <sl-button class="filter-btn" pill size="medium" data-field="gender" data-match="f" @click=${this.handleFilterBtn.bind(this)}>Patterns</sl-button>
-        <sl-button class="filter-btn" pill size="medium" data-field="gender" data-match="u" @click=${this.handleFilterBtn.bind(this)}>Artworks</sl-button>
+        <sl-button class="filter-btn" pill size="medium" data-field="gender" data-match="u" @click=${this.handleFilterBtn.bind(this)}>Artwork</sl-button>
         </div>
 
         <div class="btn-col2">
-        <sl-button class="filter-btn" pill size="medium" data-field="length" data-match="s" @click=${this.handleFilterBtn.bind(this)}>Fun</sl-button>
-        <sl-button class="filter-btn" pill size="medium" data-field="length" data-match="m" @click=${this.handleFilterBtn.bind(this)}>Classic</sl-button>
-        <sl-button class="filter-btn" pill size="medium" data-field="length" data-match="l" @click=${this.handleFilterBtn.bind(this)}>Minimal</sl-button>
+        <sl-button class="filter-btn" pill size="medium" data-field="length" data-match="s" @click=${this.handleFilterBtn.bind(this)}>Flat</sl-button>
+        <sl-button class="filter-btn" pill size="medium" data-field="length" data-match="m" @click=${this.handleFilterBtn.bind(this)}>3D</sl-button>
+ 
+
         </div>
 
         <div class="btn-col3">
         <sl-button class="filter-btn" pill size="medium" data-field="price" data-match="0-0" @click=${this.handleFilterBtn.bind(this)}>Free</sl-button>
-        <sl-button class="filter-btn" pill size="medium" data-field="price" data-match="1-30" @click=${this.handleFilterBtn.bind(this)}>$1-30</sl-button>
-        <sl-button class="filter-btn" pill size="medium" data-field="price" data-match="30-1000" @click=${this.handleFilterBtn.bind(this)}>$30+</sl-button>
+        <sl-button class="filter-btn" pill size="medium" data-field="price" data-match="1-50000" @click=${this.handleFilterBtn.bind(this)}>Premium</sl-button>
+        <sl-button class="filter-btn" pill size="medium" data-field="name" data-match="pack" @click=${this.handleFilterBtn.bind(this)}>Packs</sl-button>
         </div>
 
       <div class="btn-col4">
@@ -151,6 +173,7 @@ class designsView {
       </div>
       </div>
       </div>
+
         <div class="designs-container">
           ${this.designs == null ? html`
             <sl-spinner></sl-spinner>

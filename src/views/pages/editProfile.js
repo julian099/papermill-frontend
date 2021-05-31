@@ -36,6 +36,7 @@ class EditProfileView {
       delete updatedUser.password        
       this.user = updatedUser     
       Auth.currentUser = updatedUser
+      
       this.render()
       Toast.show('profile updated')
     }catch(err){      
@@ -47,11 +48,12 @@ class EditProfileView {
   render(){
     const template = html`
       <va-app-header title="Edit Profile" user=${JSON.stringify(Auth.currentUser)}></va-app-header>
-      <div class="page-content">        
+      <div class="edit-grid">
+      <div class="page-content-third">        
         ${(this.user == null) ? html`
           <sl-spinner></sl-spinner>
         `:html`
-          <p>Updated: ${moment(Auth.currentUser.updatedAt).format('MMMM Do YYYY, @ h:mm a')}</p>
+          <p>Your last update was ${moment(Auth.currentUser.updatedAt).format('MMMM Do YYYY, @ h:mm a')}</p>
           <sl-form class="page-form" @sl-submit=${this.updateProfileSubmitHandler.bind(this)}>
             <div class="input-group">
               <sl-input type="text" name="firstName" value="${this.user.firstName}" placeholder="First Name"></sl-input>
@@ -63,7 +65,7 @@ class EditProfileView {
               <sl-input type="text" name="email" value="${this.user.email}" placeholder="Email Address"></sl-input>
             </div>     
             <div class="input-group">
-              <sl-textarea name="bio" rows="4" placeholder="Bio" value="${this.user.bio}"></sl-textarea>
+              <sl-textarea name="bio" rows="9" placeholder="Let everyone know who you are in 200 characters or less." maxlength="200" value="${this.user.bio}"></sl-textarea>
             </div>       
             <div class="input-group">
               <label>Avatar</label><br>          
@@ -74,9 +76,10 @@ class EditProfileView {
                 <input type="file" name="avatar" />
               `}
             </div>
-            <sl-button type="primary" class="submit-btn" submit>Update Profile</sl-button>
+            <sl-button  type="primary" class="submit-btn" submit>Update Profile</sl-button >
           </sl-form>
         `}
+      </div>
       </div>
     `
     render(template, App.rootEl)

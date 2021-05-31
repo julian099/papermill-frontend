@@ -12,6 +12,8 @@ import favouriteDesignsView from './views/pages/favouriteDesigns'
 import newDesignsView from './views/pages/newDesign'
 import specificProfileView from './views/pages/specificProfile'
 
+
+
 // define routes
 const routes = {
 	'/': homeView,	
@@ -26,6 +28,8 @@ const routes = {
 	'/favouriteDesigns': favouriteDesignsView,
 	'/newDesign': newDesignsView,
 	'/public': specificProfileView
+
+
 	
 
 }

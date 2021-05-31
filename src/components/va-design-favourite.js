@@ -6,7 +6,7 @@ import App from '../App'
 import UserAPI from '../UserAPI'
 import Toast from '../Toast'
 
-customElements.define('va-design', class Design extends LitElement {
+customElements.define('va-design-favourite', class Favourite extends LitElement {
   constructor(){
     super()    
   }
@@ -43,10 +43,6 @@ customElements.define('va-design', class Design extends LitElement {
   firstUpdated(){
     super.firstUpdated()
   }
-
-
-
-
 
   moreInfoHandler(){  
     // create sl-dialog
@@ -223,7 +219,7 @@ customElements.define('va-design', class Design extends LitElement {
       <h3>$${this.price}</h3>
       <a @click=${() => gotoRoute(`/public?id=${this.user._id}`)}><p class="author">By ${this.user.firstName} ${this.user.lastName}</p></a>
       <sl-button @click=${this.moreInfoHandler.bind(this)}>More info</sl-button>
-      <sl-icon-button name="heart-fill" label="Add to favourites" @click=${this.addFavHandler.bind(this)}></sl-icon-button>
+
     </sl-card>
     `
   }

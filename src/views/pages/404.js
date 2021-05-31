@@ -11,8 +11,9 @@ class FourOFourView{
   render(){
     const template = html`    
       <div class="calign">
-        <h1>Opps!</h1>
-        <p>Sorry, we couldn't find that.</p>
+        <h1 class="fourOhFour">404!</h1>
+        <h1>Sorry about that.</h1>
+
       </div>
     `
     render(template, App.rootEl)
