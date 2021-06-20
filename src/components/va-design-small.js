@@ -217,7 +217,7 @@ customElements.define('va-design-small', class DesignSmall extends LitElement {
  
 
 
-      <img @click=${this.moreInfoHandler.bind(this)} class="design-image" slot="image" src="${App.apiBase}/images/${this.image}" alt="${this.name}" />
+      <img @click=${this.moreInfoHandler.bind(this)} class="design-image" slot="image" src="${App.apiBase}/images/${this.image}" alt="${this.name}" onerror="this.src='/images/default_avatar.png';"/>
       <div class="moreInfoText"><h3>More Info</h3></div>
       <h2>${this.name}</h2>
       <h3>$${this.price}</h3>
