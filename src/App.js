@@ -7,7 +7,7 @@ class App {
   constructor(){
     this.name = "Papermill"
     this.version = "1.0.0"
-    this.apiBase = 'http://localhost:3000'
+    this.apiBase = 'https://papermill-backend-server.herokuapp.com'
     this.rootEl = document.getElementById("root")
     this.version = "1.0.0"
   }
