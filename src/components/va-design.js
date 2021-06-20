@@ -82,7 +82,7 @@ customElements.define('va-design', class Design extends LitElement {
       </style>
       <div class="wrap">
         <div class="image">
-          <img src="${App.apiBase}/images/${this.image}" alt="${this.name}" />
+          <img src="${App.apiBase}/images/${this.image}" alt="${this.name}" onerror="this.src='/images/default_avatar.png';"/>
           
         </div>
         <div class="content">
