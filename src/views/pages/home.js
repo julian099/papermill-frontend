@@ -54,7 +54,7 @@ class HomeView {
               </div>
               <h3 class="home_title">Your profile</h3>
     </div>
-    <div class="home-item6 calign" @click=${() => gotoRoute('/public?id=60a66174f45c409a83f78d7a')}><sl-tooltip content="Hand-picked every week!">
+    <div class="home-item6 calign" @click=${() => gotoRoute('/public?id=60b4b62d0f595e0164af7a6f')}><sl-tooltip content="Hand-picked every week!">
     <div class="home_image_wrapper">
               <img class="home_artwork" src="/images/user_spotlight_home.svg">
               </div>
